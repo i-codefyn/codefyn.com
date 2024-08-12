@@ -1,0 +1,183 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1"
+    >
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'staff' %}">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {% if pagename %}{{pagename}}{% endif %}
+          </li>
+        </ol>
+      </nav>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="">
+          <form method="POST" action=" {% url 'users_list' %}">
+            {% load crispy_forms_tags %}
+            <div class="row g-2">
+              <div class="col-md">{% csrf_token %} {{ form.startdate }}</div>
+              <div class="col-md">{{ form.enddate }}</div>
+              <div class="col-md">
+                <button
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom"
+                  title="Search"
+                  type="submit"
+                  value="filter"
+                  class="btn btn-primary"
+                >
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-orange dropdown-toggle"
+          data-bs-toggle="dropdown"
+          data-bs-display="static"
+          aria-expanded="false"
+        >
+          <i class="bi bi-card-text mr10"></i> Export
+        </button>
+        <ul class="dropdown-menu dropdown-menu-lg-end">
+          <li>
+            <a
+              href="{% url 'users_exportpdf_all' %}"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Export PDF"
+              class="dropdown-item"
+              type="button"
+              >Export PDF All</a
+            >
+          </li>
+          <li>
+            <button
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Export PDF by date"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              class="dropdown-item"
+              type="button"
+            >
+              Export PDF Selected
+            </button>
+          </li>
+          <li>
+            <a
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Export CSV"
+              href="{% url 'users_exportcsv' %}"
+              class="dropdown-item"
+              type="button"
+              >Export CSV
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Dashboard Counts Section-->
+
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <table
+            id="table"
+            class="table table-bordered border-secondary table-hover"
+          >
+            <thead class="alert-success">
+              <tr>
+                <th width="2%" scope="col">S.No:</th>
+                <th width="46%" scope="col">Name</th>
+                <th width="46%" scope="col">Email</th>
+                <th width="2%" scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for users in users %} {% if users %}
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ users.username }}</td>
+                <td>{{ users.email }}</td>
+                <td>
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="view"
+                    class="btn btn-info btn-sm rounded-circle"
+                    href="{{ users.get_absolute_url }}"
+                    ><i class="bi bi-eye text-white"></i
+                  ></a>
+                </td>
+              </tr>
+
+              {% else %} no data {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Select The Date Range
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="">
+            <form method="POST" action=" {% url 'users_export_bydate' %}">
+              {% load crispy_forms_tags %}
+              <div class="row g-2">
+                <div class="col-md">{% csrf_token %} {{ form.startdate }}</div>
+                <div class="col-md">{{ form.enddate }}</div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" value="filter" class="btn btn-primary">
+                    <i class="bi bi-files"></i> Export PDF
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</main>

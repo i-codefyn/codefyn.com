@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+      {% block title %}{{ page_title }} - Codefyn {% endblock %}
+    </title>
+    <meta name="keywords" content="{{ key.keyword }}" />
+    <meta name="description" content="{{ key.description }}" />
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'codefyn-5.0/images/favicon.png' %}"/>
+    {% load static compress %}
+    {% compress css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/css/base_home_style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/css/carousel.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/vendor/bootstrap-5.0.2/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/vendor/font/bootstrap-icons.css' %}"
+    />
+    {% endcompress %}
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Poppins:400,500,600"
+  />
+
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/vendor/sweetalert/sweetalert2.all.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/vendor/jquery-3.5/jquery.min.js' %}"
+    ></script>
+  </head>
+  <body>
+    {% block loader %} {% endblock %} {% block messages %}
+    {% include 'home/includes/messages.html' with messages=messages %}
+    {% endblock %}
+    {%block content %}{% endblock %}
+  </body>
+</html>

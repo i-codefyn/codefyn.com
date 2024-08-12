@@ -1,0 +1,219 @@
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top_rw">
+      <td colspan="2">
+        <h2 style="margin-bottom: 0px">
+          {% for app in app_data %}
+          <img
+            src="{{ app.app_logo.url }}"
+            style="width: 180px; height: 60px"
+          />
+        </h2>
+
+        <table style="border: none">
+          <tr>
+            <td>
+              <b> Mobile: {{ mobile }} </b> | <b>Email: {{ email }} </b> |
+              <b> Web : {{ app.domain_name }} </b><br />
+              <b> Address: {{ app.app_address }}</b>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td style="width: 20%">
+        <div class="qr-img">
+          {% if qr_code_img %}
+          <img src="/media/QR/{{ qr_code_img }}" alt="qr code" />
+          {% endif %}
+        </div>
+      </td>
+    </tr>
+    <tr class="information">
+      <td colspan="3">
+        <table style="border: none">
+          <h2
+            style="
+              text-align: center;
+              align-items: center;
+              font-weight: 600;
+              border-bottom: #111;
+            "
+          >
+            {{ doc_name }}
+          </h2>
+          <tr>
+            <td style="width: 50%">
+              <table class="info">
+                <tr>
+                  <td>Work ID:{{ work_id }}</td>
+                </tr>
+                <tr>
+                  <td>Customer Name:{{ name }}</td>
+                </tr>
+                <tr>
+                  <td>Mobile:{{ mobile }}</td>
+                </tr>
+                <tr>
+                  <td>Email:{{ email }}</td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table class="info">
+                <tr>
+                  <td>Device Name/ Model:{{ device }}</td>
+                </tr>
+                <tr>
+                  <td>Status: {{ status }}</td>
+                </tr>
+                <tr>
+                  <td>Updated Date:{{ updated }}</td>
+                </tr>
+                <tr>
+                  <td>Submitted Date:{{ created }}</td>
+                </tr>
+              </table>
+            </td>
+            <table style="border: none">
+              <tr>
+                <td><b>Device Problem : {{ problem }}</b></td>
+              </tr>
+            </table>
+            <table style="border: none">
+              <tr>
+                <td>
+                  <pdf:barcode
+                    value="{{ work_id }}"
+                    type="code128"
+                    humanreadable="1"
+                    align="bottom"
+                  />
+                </td>
+              </tr>
+            </table>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <table cellspacing="0px" cellpadding="2px">
+          <tr>
+            <td width="50%">
+              <b> Declaration: </b> <br />
+              All the information Given in this filled by customer . We Don't
+              Verify these information.
+            </td>
+            <td>
+              * This is a computer generated invoice and does not require a
+              physical signature
+            </td>
+          </tr>
+          <tr>
+            <td width="50%"></td>
+            <td class="sign">
+              <div>
+                <img src="{{ app.app_stamp.url }}" class="stamp" />
+              </div>
+              <b> Authorized Signature </b>
+              <br />
+              <br />
+              ...................................
+
+              <br />
+              <br />
+              <br />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endfor %}
+<style>
+  .sign {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+  }
+  .stamp {
+    height: 80px;
+    width: 80px;
+    margin-right: 5px;
+  }
+  .top_rw {
+    background-color: #f4f4f4;
+  }
+  .td_w {
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  .invoice-box {
+    max-width: 890px;
+    margin: auto;
+    padding: 5px;
+    border: 1px solid #111;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 12px;
+    color: #555;
+  }
+  .invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+    border: solid 1px #ccc;
+  }
+  .invoice-box table td {
+    padding: 5px;
+    vertical-align: middle;
+  }
+  .invoice-box table tr td:nth-child(2) {
+    text-align: right;
+  }
+  .invoice-box table tr.top table td {
+    padding-bottom: 10px;
+  }
+  .invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+  }
+  .invoice-box table tr.information table td {
+    padding-bottom: 5px;
+  }
+  .invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 10px solid #ddd;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .invoice-box table tr.details td {
+    padding-bottom: 10px;
+  }
+  .invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+  }
+  .invoice-box table tr.item.last td {
+    border-bottom: none;
+  }
+  .invoice-box table tr.total td:nth-child(2) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+    .invoice-box table tr.information table td {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+</style>

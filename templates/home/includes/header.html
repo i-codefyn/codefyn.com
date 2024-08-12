@@ -1,0 +1,90 @@
+<!--header -->
+
+<header class=" pt-1">
+  <div class="container">
+    <div class="d-none d-md-block header">
+      <div class="">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 start"
+          >
+            <li><i class="bi-envelope-at-fill mr5 "></i> info@codefyn.com </li>
+            <li><i class="bi-phone-fill m-lg-1"></i> +917992200751 </li>
+            <li class="mx-5"> <marquee behavior="scroll" direction="left">
+              Upto <span class="text-danger">50% </span><span class="text-warning">Discount </span> In Web Development Services...!</marquee>
+            </li>
+          </ul>
+
+          <!---user auth-->
+          {% if user.is_authenticated %}
+          <div class="flex-shrink-0 end">
+            <li class="nav-item dropdown-acc">
+              <a
+                class="nav-link dropdown-toggle a"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle"></i> {{user.username}}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if user.is_staff %}
+                <li>
+                  <a class="dropdown-item a" href="{% url 'staff' %}">
+                    <i class="bi bi-speedometer mr5"></i> Dashboard</a
+                  >
+                </li>
+                {% else %}
+                <li>
+                  <a class="dropdown-item a" href="{%url 'user-profile' %}"
+                    >Profile</a
+                  >
+                </li>
+                {% endif %}
+                <li>
+                  <!-- Logout  -->
+                  {% load crispy_forms_tags %}
+                  <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+
+                    <button
+                      class="dropdown-item a"
+                      type="submit"
+                      onclick="confirmFunction()"
+                    >
+                      <i class="bi bi-box-arrow-right mr5"></i>
+                      Log Out
+                    </button>
+
+                    <!-- Logout  -->
+
+                    {% else %}
+
+                    <a
+                      class="btn btn-sm"
+                      data-bs-toggle="tooltip"
+                      href="{% url 'account_login'%}"
+                      data-bs-placement="bottom"
+                      title="Login"
+                      >
+                      <i class="bi bi-fingerprint mr5"></i> Login</a
+                    >
+
+                    {% endif %}
+
+                    <!-- end Header -->
+                  </form>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="border-bottom"></div>

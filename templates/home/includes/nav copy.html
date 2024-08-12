@@ -1,0 +1,245 @@
+<!-- nav start -->
+<div class="navbar-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-top" id="navbar_top">
+    <div class="container">
+      <a class="logo" href="#">
+        <img src="/static/codefyn-5.0/images/logo.svg" />
+        <!-- <img src="{{ app.app_logo.url }}" alt="{{ app.app_name }}" -->
+      </a>
+
+      <ul class="navbar-nav ml-auto d-block d-md-none">
+        <div type="button" id="sidebarCollapse" class="mobile-menu">
+          <i class="bi bi-list mobile-menu"></i>
+        </div>
+      </ul>
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedConten">
+        <ul class="navbar-nav a me-auto mb-2 ms-5 mb-lg-0 justify-content-end">
+          <ul class="nav">
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Home"
+                href="{% url 'Home:index' %}"
+                class="nav-link active"
+                >HOME</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="About Us"
+                href="{% url 'Home:index' %}#about"
+                class="nav-link"
+                >ABOUT US</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Our Services"
+                href="{% url 'Home:index' %}#service"
+                class="nav-link"
+                >SERVICES</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Our Features"
+                href="{% url 'Home:index' %}#features"
+                class="nav-link"
+                >FEATURES</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Technologies We Use"
+                href="{% url 'Home:index' %}#skills"
+                class="nav-link"
+                >TECHNOLOGIES</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Our Works"
+                href="{% url 'Home:index' %}#workings"
+                class="nav-link"
+                >WORKINGS</a
+              >
+            </li>
+          </ul>
+
+          <li class="nav-item dropdown">
+            <a
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              aria-expanded="false"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdown"
+              role="button"
+            >
+              SUPPORT
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item a" href="{% url 'Home:faqs' %}">Faqs</a>
+              </li>
+              <li>
+                <a class="dropdown-item a" href="{% url 'Home:contactus' %}"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item a" href="{% url 'Home:feedback' %}"
+                  >FeedBack</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item a"
+                  href="{% url 'Home:refund_policy' %}"
+                  >Refund Policy</a
+                >
+              </li>
+              <li> 
+                <a
+                  class="dropdown-item a"
+                  href="{% url 'Home:privacy_policy' %}"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item a"
+                  href="{% url 'Home:terms_and_conditions' %}"
+                  >Terms And Conditions</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item a" href="{% url 'Home:disclamer' %}"
+                  >Disclamer</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Link End -->
+        <div class="text-end">
+          {% if user.is_authenticated and user.is_staff %}
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i
+                  class="bi bi-people mr5 user-account p-1 text-white rounded-circle px-2 pt-1 font-bold"
+                ></i>
+                {{ user.username }}
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-lg-end"
+                aria-labelledby="navbarDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="{% url 'staff' %}">
+                    <i class="bi bi-speedometer mr10"></i>
+                    Dashboard</a
+                  >
+                </li>
+                <hr class="dropdown-divider" />
+                <!-- Logout  -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    type="button"
+                    name="logout"
+                    onclick="logoutFunction()"
+                  >
+                    <i class="bi bi-box-arrow-right text-danger mr10"></i>
+                    Logout</a
+                  >
+                </li>
+              </ul>
+              {% elif user.is_authenticated %}
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i
+                      class="bi bi-people mr5 user-account p-1 text-white font-bold"
+                    ></i>
+                    {{ user.username }}
+                  </a>
+
+                  <ul
+                    class="dropdown-menu dropdown-menu-lg-end"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'user_dashboard' %}"
+                      >
+                        <i class="bi bi-person-bounding-box fa-fw"></i>
+                        Account</a
+                      >
+                    </li>
+
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <!-- Logout  -->
+                    <li>
+                      <a
+                        class="dropdown-item text-danger"
+                        type="button"
+                        onclick="logoutFunction()"
+                      >
+                        <i class="bi bi-box-arrow-in-right mr10"></i>
+                        Logout</a
+                      >
+                    </li>
+                    {% elif not user.is_authenticated %}
+                    <a
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="bottom"
+                      type="button"
+                      class="btn-orange"
+                      title="Feel Free to Contact"
+                      href="{% url 'Home:contactus' %}"
+                    >
+                      Quick Enquiry!
+                    </a>
+                    {% endif %}
+                    <!-- Nav End -->
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

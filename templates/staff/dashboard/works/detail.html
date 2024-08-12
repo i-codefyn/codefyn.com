@@ -1,0 +1,312 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="container-fluid">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom bg-light"
+    >
+      <h1 class="h4 ms-2">{% if pagename %}{{pagename}}{% endif %}</h1>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="btn-group me-1">
+          <a
+            href="{% url 'work_sheet_list'%}"
+            type="button"
+            class="btn btn-warning"
+          >
+            <i class="bi bi-arrow-left"></i> Back</a
+          >
+          <a
+            href="{{ work_sheet.get_absolute_url }}/pdf"
+            type="button"
+            class="btn btn-success"
+          >
+            <i class="bi bi-download"></i> Download</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Dashboard Counts Section-->
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <div class="invoice-box">
+            <table cellpadding="0" cellspacing="0">
+              <h5
+                style="
+                  text-align: center;
+                  align-items: center;
+                  font-weight: 600;
+                "
+              >
+                {{ doc_name }}
+              </h5>
+              <tr class="top_rw">
+                <td colspan="2">
+                  <h2 style="margin-bottom: 0px">
+                    {% for app in app_data %}
+                    <img
+                      src="{{ app.app_logo.url }}"
+                      style="width: 180px; height: 60px"
+                    />
+                  </h2>
+                  <span style=""> </span>
+                  <table>
+                    <tr>
+                      <td>
+                        <b> Mobile No: {{ app.app_mobile }} </b> |
+                        <b> Web : {{ app.domain_name }} </b><br />
+                        <b> Address: {{ app.app_address }}</b>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td style="width: 35%">
+                  <div class="qr-img">
+                    {% if qr_code_img %}
+                    <img src="/media/{{ qr_code_img }}"  />
+                    {% endif %}
+                  </div>
+                </td>
+              </tr>
+              <tr class="top">
+                <td colspan="3"></td>
+              </tr>
+              <tr class="information">
+                <td colspan="3">
+                  <table>
+                    <tr>
+                      <td style="width: 50%">
+                        <table class="info">
+                          <tr>
+                            <b> Customer Details </b
+                            ><br />
+                          </tr>
+                          <tr>
+                            <td>Work ID:</td>
+                            <td>{{ work_sheet.work_id }}</td>
+                          </tr>
+                          <tr>
+                            <td>Customer Name:</td>
+                            <td>{{ work_sheet.name }}</td>
+                          </tr>
+                          <tr>
+                            <td>Mobile:</td>
+                            <td>{{ work_sheet.mobile }}</td>
+                          </tr>
+                          <tr>
+                            <td>Email:</td>
+                            <td>{{ work_sheet.email }}</td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <b> Device Details </b><br />
+                        <table class="info">
+                          <tr>
+                            <td>Device Name/ Model</td>
+                            <td>{{ work_sheet.device_name }}</td>
+                          </tr>
+                          <tr>
+                            <td>Status</td>
+                            {% if work_sheet.status == 'Pending' %}
+                            <td>
+                              <div class="text-warning">
+                                <i class="bi bi-exclamation-circle"></i> Pending
+                              </div>
+                            </td>
+                            {% elif work_sheet.status == 'Done' %}
+                            <td>
+                              <div class="text-primary">
+                                <i class="bi bi-check-circle"></i> Done
+                              </div>
+                            </td>
+                            {% elif work_sheet.status == 'Delivered' %}
+                            <td>
+                              <div class="text-success">
+                                <i class="bi bi-check-all"></i> Delivered
+                              </div>
+                            </td>
+                            {% elif work_sheet.status == 'Returned' %}
+                            <td>
+                              <div class="text-danger">
+                                <i class="bi bi-x-circle"></i> Returned
+                              </div>
+                            </td>
+                          </tr>
+                          {% endif %}
+
+                          <tr>
+                            <td>Submitted Date:</td>
+                            <td>{{ work_sheet.created_at}}</td>
+                          </tr>
+                          <tr>
+                            {% if work_sheet.status == 'Pending' %}
+                            <td>Status :</td>
+                            <td>Pending</td>
+                            {% elif work_sheet.status == 'Delivered' %}
+                            <td>Delivered Date :</td>
+                            <td>{{ work_sheet.updated_at }}</td>
+                            {% elif work_sheet.status == 'Done' %}
+                            <td>Completed Date :</td>
+                            <td>{{ work_sheet.updated_at }}</td>
+                            {% elif work_sheet.status == 'Returned' %}
+                            <td>Return Date :</td>
+                            <td>{{ work_sheet.updated_at }}</td>
+                          </tr>
+                          {% endif %}
+                        </table>
+                      </td>
+                      <table>
+                        <tr>
+                          <td>
+                            <b
+                              >Device Problem : {{ work_sheet.device_problem }}</b
+                            >
+                          </td>
+                        </tr>
+                      </table>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3">
+                  <table cellspacing="0px" cellpadding="2px">
+                    <tr>
+                      <td width="50%">
+                        <b> Declaration: </b> <br />
+                        All the information Given in this filled by customer .
+                        We Don't Varify these information.
+                      </td>
+                      <td>
+                        * This is a computer generated invoice and does not
+                        require a physical signature
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%"></td>
+                      <td>
+                        <div class="sign">
+                          <img src="{{ app.app_stamp.url }}" class="stamp" />
+                        </div>
+                        <b> Authorized Signature </b>
+                        <br />
+                        <br />
+                        ...................................
+                        <pdf:barcode
+                          value="{{ app.domain_name }}"
+                          type="code128"
+                          humanreadable="1"
+                          align="bottom"
+                        />
+
+                        <br />
+                        Date:{{ date }}
+                        <br />
+
+                        <br />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          {%endfor%}
+          <style>
+            .info td {
+              border: 1px solid #ccc;
+            }
+            .stamp {
+              height: 80px;
+              width: 80px;
+              margin-right: 20px;
+            }
+            .top_rw {
+              background-color: #f4f4f4;
+            }
+            .td_w {
+            }
+
+            button {
+              padding: 5px 10px;
+              font-size: 14px;
+            }
+            .invoice-box {
+              width: 21cm;
+              min-height: 29.7cm;
+              margin: auto;
+              padding: 10px;
+              border: 1px solid #eee;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+              font-size: 14px;
+              line-height: 24px;
+              font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial,
+                sans-serif;
+              color: #555;
+            }
+            .invoice-box table {
+              width: 100%;
+              line-height: inherit;
+              text-align: left;
+              border-bottom: solid 1px #ccc;
+            }
+            .invoice-box table td {
+              padding: 5px;
+              vertical-align: middle;
+            }
+            .invoice-box table tr td:nth-child(2) {
+              text-align: right;
+            }
+            .invoice-box table tr.top table td {
+              padding-bottom: 20px;
+            }
+            .invoice-box table tr.top table td.title {
+              font-size: 45px;
+              line-height: 45px;
+              color: #333;
+            }
+            .invoice-box table tr.information table td {
+              padding-bottom: 5px;
+            }
+            .invoice-box table tr.heading td {
+              background: #eee;
+              border-bottom: 10px solid #ddd;
+              font-weight: bold;
+              font-size: 12px;
+            }
+            .invoice-box table tr.details td {
+              padding-bottom: 20px;
+            }
+            .invoice-box table tr.item td {
+              border-bottom: 1px solid #eee;
+            }
+            .invoice-box table tr.item.last td {
+              border-bottom: none;
+            }
+            .invoice-box table tr.total td:nth-child(2) {
+              border-top: 2px solid #eee;
+              font-weight: bold;
+            }
+            @media only screen and (max-width: 600px) {
+              .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+              }
+              .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+              }
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--wrapper end-->
+
+  {% include 'staff/dashboard/footer_dash.html'%} {% endblock %}
+</main>

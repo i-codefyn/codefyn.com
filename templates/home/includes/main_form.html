@@ -1,0 +1,75 @@
+
+<header class="section-header wow fadeInUp">
+  <h2>Get a Free Quote!</h2>
+</header>
+      <li class="main-form-errors">{{ form.captcha.errors }}</li>
+      <form
+        method="post"
+        id="MainForm"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <div class="row g-2 mb-3">
+          <div class="col-md form-floating">
+            {{ form.name }}
+            <li class="main-form-errors">{{ form.name.errors }}</li>
+            <label for="floatingInput text-bold">
+              <i class="bi bi-people-fill mr5 form-i"></i>
+              <span class="text-color-black fw-bold"> Name</span></label
+            >
+          </div>
+          <div class="col-md form-floating">
+            {{ form.email }}
+            <li class="main-form-errors">{{ form.email.errors }}</li>
+            <label for="floatingInput">
+              <i class="bi-envelope-at-fill mr5 form-i"></i>
+              <span class="text-color-black fw-bold">Email</span>
+            </label>
+          </div>
+        </div>
+        <div class="row g-2 mb-3">
+          <div class="col-md form-floating">
+            {{ form.mobile }}
+            <li class="main-form-errors">{{ form.mobile.errors }}</li>
+            <label for="floatingInput text-bold">
+              <i class="bi bi-people-fill mr5 form-i"></i>
+              <span class="text-color-black fw-bold">Mobile No:</span></label
+            >
+          </div>
+          <div class="col-md form-floating">
+            {{ form.services }}
+            <li class="main-form-errors">{{ form.services.errors }}</li>
+              <label for="floatingSelect">
+                Select Services</label>
+            </div>
+     
+        <div class="row g-2 mb-3">
+          <div class="col-md-12 form-floating">
+            {{ form.message }}
+            <li class="main-form-errors">{{ form.message.errors }}</li>
+            <label for="floatingInput"
+              ><i class="bi bi-motherboard-fill mr5 form-i"></i>
+              <span class="text-color-black fw-bold">Project Idea ..!</span>
+            </label>
+          </div>
+          </div>
+          <div class="row g-2 mb-3">
+          <div class="col-md-6 form-floating">
+            {{ form.captcha }}
+            <li class="main-form-errors">{{ form.captcha.errors }}</li>
+           
+            </div>
+          <div class="col-md-6 form-floating">
+            <div class="input-group">
+              <button
+                class="form-control button-main-form "
+                type="submit"
+                id="btn1"
+                value="Submit"
+              >
+                <i class="bi bi-send-check mr10"></i>Send Enquiry
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>

@@ -1,0 +1,304 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1"
+    >
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'staff' %}">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {% if pagename %}{{pagename}}{% endif %}
+          </li>
+        </ol>
+      </nav>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <form method="POST" action="{% url 'work_sheet_list'%}">
+          {% csrf_token %}
+          <div class="row g-2">
+            <div class="col-md">{{ form.startdate }}</div>
+            <div class="col-md">{{ form.enddate }}</div>
+            <div class="col-md">
+              <button type="submit" value="filter" class="btn btn-primary">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="btn-group">
+        <a
+          href="{% url 'work_sheet_create'%}"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Create"
+          type="button"
+          class="btn btn-pink"
+        >
+          <i class="bi bi-plus-circle"></i> Add</a
+        >
+        <button
+          type="button"
+          class="btn btn-orange dropdown-toggle"
+          data-bs-toggle="dropdown"
+          data-bs-display="static"
+          aria-expanded="false"
+        >
+          <i class="bi bi-file-earmark-ruled mr10"></i> Export
+        </button>
+        <ul class="dropdown-menu dropdown-menu-lg-end">
+          <!-- Button trigger modal -->
+          <li>
+            <a
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Export PDF All"
+              href="{% url 'work_sheet_export_pdf_all' %}"
+              class="dropdown-item"
+              type="button"
+              >Export PDF All</a
+            >
+          </li>
+          <li>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#WorkSheetModal"
+              class="dropdown-item"
+              type="button"
+            >
+              Export PDF Selected
+            </button>
+          </li>
+          <li>
+            <a
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Export CSV"
+              href="{% url 'work_sheet_exportcsv'%}"
+              class="dropdown-item"
+              type="button"
+              >Export CSV
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Dashboard Counts Section-->
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <table
+            id="table"
+            class="table table-bordered border-secondary table-hover"
+          >
+            <thead class="alert-success">
+              <tr>
+                <!-- <th width="1%" scope="col">S.N</th> -->
+                <th width="10%" scope="col">Work ID</th>
+                <th width="15%" scope="col">Name</th>
+                <th width="25%" scope="col">Email ID</th>
+                <th width="15%" scope="col">Status</th>
+                <th width="14%" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% if works %} {% for work_sheet in works %}
+                <!-- <th scope="row">{{ forloop.counter }}</th> -->
+                <td>{{ work_sheet.work_id }}</td>
+                <td>{{ work_sheet.name }}</td>
+                <td>{{ work_sheet.email }}</td>
+                {% if work_sheet.status == 'Pending' %}
+                <td>
+                  <div class="text-warning">
+                    <i class="bi bi-exclamation-circle"></i> Pending
+                  </div>
+                </td>
+                {% elif work_sheet.status == 'Done' %}
+                <td>
+                  <div class="text-primary">
+                    <i class="bi bi-check-circle"></i> Done
+                  </div>
+                </td>
+                {% elif work_sheet.status == 'Delivered' %}
+                <td>
+                  <div class="text-success">
+                    <i class="bi bi-check-all"></i> Delivered
+                  </div>
+                </td>
+                {% elif work_sheet.status == 'Returned' %}
+                <td>
+                  <div class="text-danger">
+                    <i class="bi bi-x-circle"></i> Returned
+                  </div>
+                </td>
+
+                {% endif %}
+
+                <td>
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="view"
+                    class="btn btn-info btn-sm rounded-circle"
+                    href="{{ work_sheet.get_absolute_url }}"
+                  >
+                    <i class="bi bi-eye text-white"></i
+                  ></a>
+
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Update Status"
+                    class="btn btn-success btn-sm rounded-circle"
+                    href="{{ work_sheet.get_absolute_url }}/update"
+                  >
+                    <i class="bi bi-pencil-square text-white"></i
+                  ></a>
+
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="PDF Export"
+                    class="btn btn-primary btn-sm rounded-circle"
+                    href="{{ work_sheet.get_absolute_url }}/pdf"
+                  >
+                    <i class="bi bi-filetype-pdf text-white"></i
+                  ></a>
+
+                  <a
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="Mail worksheet to Customer"
+                    class="btn btn-orange btn-sm rounded-circle"
+                    href="{{ work_sheet.get_absolute_url }}/send/worksheet"
+                  >
+                    <i class="bi bi-envelope-check text-white"></i
+                  ></a>
+                </td>
+              </tr>
+              {% endfor %} {% else %}
+              <div class="alert-danger">No data to display</div>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+
+  <!-- Modal -->
+
+  <div
+    class="modal fade"
+    id="WorkSheetModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Select The Date Range
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="">
+            <form
+              method="POST"
+              action="{% url 'work_sheet_export_pdf_filtered' %}"
+            >
+              <div class="row g-2">
+                <div class="col-md">
+                  {% load crispy_forms_tags %} {% csrf_token %} {{
+                  form.startdate }}
+                </div>
+                <div class="col-md">{{ form.enddate }}</div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" value="filter" class="btn btn-primary">
+                    <i class="bi bi-files"></i> Export PDF
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal For Status Update -->
+
+  <div
+    class="modal fade"
+    id="StatusModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Select The Date Range
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="">
+            <form
+              method="POST"
+              action="{% url 'work_sheet_export_pdf_filtered' %}"
+            >
+              {% csrf_token %}
+              <div class="row g-2">
+                <div class="col-md">
+                  {% load crispy_forms_tags %} {{ form.startdate }}
+                </div>
+                <div class="col-md">{{ form.enddate }}</div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" value="filter" class="btn btn-primary">
+                    <i class="bi bi-files"></i> Export PDF
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</main>

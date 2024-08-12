@@ -1,0 +1,52 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+<!--** Faq Section **  -->
+<section class="bg-light pt-5 pb-5">
+  <div class="pt-5">
+  <div class="container">
+    <div class="faqs bg-red-gradient">
+      <div class="faq-image"></div>
+      <h2 class="text-center text-mute"><strong>FAQ's</strong></h2>
+      <h2 class="text-center">
+        <strong>How Can </strong> <span class="text-">We help You ?</span>
+      </h2>
+      {% if faq %}{% for faq in faq %}
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq{{ forloop.counter }}"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              <span class="btn-orange mr10 btn-sm rounded-circle"
+                >{{ forloop.counter }}</span
+              >
+              Que:- {{ faq.que }} ?
+            </button>
+          </h2>
+          <div
+            id="faq{{ forloop.counter }}"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body text-dark px-4">
+              <span class="btn-black mr10 btn-sm rounded-circle"
+                >{{ forloop.counter }}</span
+              >
+              Ans:-{{ faq.ans }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock %}
+      <!-- ****End Faq  -->

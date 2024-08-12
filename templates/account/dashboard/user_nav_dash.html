@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-white sticky-top">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <button
+      type="button"
+      class="btn float-left"
+      id="sidebarsrink"
+      role="button"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/" class="navbar-brand d-flex">
+      {% if app_data %} {% for app in app_data %}
+      <img src="{{ app.app_logo.url }}" alt="{{app.app_name}}" /></a
+    >{% endfor %}{% endif %}
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- for serach-->
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-people"></i> {{ user.username }}
+          </a>
+
+          <ul
+            class="dropdown-menu dropdown-menu-lg-end"
+            aria-labelledby="navbarDropdown"
+          >
+            {% if user.is_authenticated %}
+            <li>
+              <a class="dropdown-item" href="{% url 'Home' %}">
+                <i class="bi bi-person-bounding-box fa-fw mr10"></i>HomePage</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <!-- Logout  -->
+            <li>
+              <a class="dropdown-item text-danger" type="button" name="logout" id="logout">
+                <i class="bi bi-box-arrow-in-right mr10"></i> Logout</a
+              >
+            </li>
+            <form
+              method="post"
+              id="logoutform"
+              action="{% url 'account_logout' %}"
+            >
+              {% csrf_token %}
+            </form>
+            <!-- Logout  -->
+            {% else %}
+            <li>
+              <a class="dropdown-item" href="{% url 'account_login' %}">
+                <i class="fas fa-sign-out-alt fa-fw"></i> Login</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+{% extends 'layouts/_base_.html' %} {% load crispy_forms_tags %}
+{% block title%}Codefyn - Logout{% endblock %} {% block content %}
+<div class="container text-center pt-5 shadow card-body">
+  <h1>Logout</h1>
+  <p>Are you sure you want to logout?</p>
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    <a class="btn btn-primary" href="{% url 'user_dashboard' %}">
+      <i class="bi bi-box-arrow-right mr5"></i>
+      cancel</a
+    >
+    <button class="btn btn-danger" type="submit">
+      <i class="bi bi-box-arrow-right mr5"></i>
+      Logout
+    </button>
+  </form>
+</div>
+
+{% endblock content %}

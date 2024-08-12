@@ -1,0 +1,95 @@
+
+<div class="wrapper  toggled ">
+    <nav id="sidebar" class="sidebar">
+      <div class="sidebar-content">
+        {% if user.is_authenticated %}
+        {% if user.is_superuser or user.is_staff  %}
+        <ul class=" flex-column">
+          <li class="nav-item active1 ">
+            <a class="nav-link" href="{% url 'staff' %}">
+              <i class="bi bi-houses-fill px-1"></i> Dashboard
+            </a>
+          </li>
+
+            <li class="nav-item active ">
+            <a class="nav-link" href="{% url 'users_list' %}">
+              <i class="bi bi-people px-1"></i> Users
+            </a>
+          </li>
+          <hr>
+          </li>
+           <h6 class="sidebar-heading d-flex justify-content-between
+            align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Products</span>
+          <a class="link-secondary" href="#" >
+            <i class="bi bi-plus mr5"></i>
+          </a>
+        </h6>
+        <li class="nav-item sidenav-drop ">
+          <a class="nav-link sidebar-link link" href="#submenu11" data-bs-toggle="collapse">
+            <i class="bi bi-pc-display mr10 "></i> Services
+          </a>
+          <ul class="collapse navbar-nav drop-menu" id="submenu11" data-bs-parent="#menu">
+            <li class="">
+                <a href="" class="nav-link  px-3">
+                   <span class="">
+                    <i class="bi bi-phone-flip mr10 "></i> Mobiles & Tabs </span> </a>
+            </li>
+            <li class="sublink">
+                <a href="" class="nav-link px-3">
+                  <span class="">
+                    <i class="bi bi-pc mr10"></i>  PC & Laptops </span> </a>
+             </li>
+        </ul>
+      </li>
+        <ul class="nav flex-column  navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'online_requests_list' %}">
+              <i class="bi bi-chat-square-quote mr10"></i> Online Requests
+            </a>
+          </li>
+        </ul>
+        <ul class="nav flex-column  navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <i class="bi bi-person-workspace mr10"></i> Work List
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between
+        align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Alerts</span>
+      <a class="link-secondary" href="#" >
+        <i class="bi bi-plus mr5"></i>
+      </a>
+    </h6>
+    <li class="nav-item sidenav-drop ">
+      <a class="nav-link sidebar-link link" href="#submenu11" data-bs-toggle="collapse">
+        <i class="bi bi-rss mr10 "></i>Feeds
+      </a>
+      <ul class="collapse navbar-nav drop-menu" id="submenu11" data-bs-parent="#menu">
+        <li class="">
+            <a href="{%  url 'feedback_list' %}" class="nav-link  px-3">
+               <span class="">
+                <i class="bi bi-star mr5 "></i> Feedback </span> </a>
+        </li>
+        <li class="sublink">
+            <a href="{% url 'msg_list' %}" class="nav-link px-3">
+              <span class="">
+                <i class="bi bi-chat-left-text mr5"></i> Messages</span> </a>
+         </li>
+    </ul>
+  </li>
+        <hr>
+
+
+
+
+
+        {% endif  %}
+        {% endif  %}
+
+      </div>
+    </nav>
+    <!-- sidebar-wrapper  -->

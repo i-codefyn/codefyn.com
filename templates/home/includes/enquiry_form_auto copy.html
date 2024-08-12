@@ -1,0 +1,85 @@
+   <div>
+    <!-- Nav tabs -->
+  
+ 
+  <!-- Subscribe Modal -->
+  <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   
+                  <h4 class="modal-title" id="myModalLabel"></h4>
+              </div>
+              <div class="modal-body">
+                <style>
+                    .enquiry-button {
+                        width: 200px;
+                        border: 2px solid #000;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        text-align: center;
+                        font-family: Arial, sans-serif;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        transition: transform 0.2s;
+                    }
+            
+                    .enquiry-button:hover {
+                        transform: scale(1.05);
+                    }
+            
+                    .enquiry-button img {
+                        width: 100%;
+                        height: auto;
+                    }
+            
+                    .enquiry-button button {
+                        width: 100%;
+                        padding: 10px;
+                        background-color: #007BFF;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 16px;
+                    }
+            
+                    .enquiry-button button:hover {
+                        background-color: #0056b3;
+                    }
+                </style>
+            </head>
+            <body>
+            
+            <div class="enquiry-button">
+                <img
+                src="/static/codefyn-5.0/images/caregrl.png"
+                class="img-fluid "
+                alt="..."
+              />
+                <button onclick="enquire()">Enquire Now</button>
+            </div>
+            
+            <script>
+                function enquire() {
+                    alert("Enquiry button clicked!");
+                    // You can replace the alert with code to open an enquiry form or redirect to a different page
+                }
+            </script>
+      </div>
+  </div>
+  <style>
+    .border-0 {
+	border:0;
+}
+
+.width-100 {
+	width:100%;
+}
+  </style>
+  <script>
+    $ (window).ready (function () {
+	setTimeout (function () {
+		$ ('#modal-subscribe').modal ("show")
+	}, 3000)
+})
+  </script>

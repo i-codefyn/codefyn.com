@@ -1,0 +1,75 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+<!-- smg-hero Section -->
+<header class="smg-hero">
+<div class="container">
+    <h1>Packaging Design</h1>
+    <p class="text-white" >Create packaging that captivates and communicates your brand’s message effectively.</p>
+</div>
+</header>
+
+<!-- Service Description Section -->
+<section class="smg-service-description">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Why Packaging Design Matters</h2>
+            <p>Packaging is more than just a container—it's an opportunity to engage with your customers and convey your brand's identity. Effective packaging design not only attracts attention but also enhances the product experience, communicates essential information, and supports your brand's storytelling.</p>
+            <p>Our packaging design services focus on creating innovative and functional packaging solutions that reflect your brand’s values and appeal to your target audience. From concept to production, we ensure that your packaging stands out on the shelves and resonates with consumers.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="/static/codefyn-5.0/images/services/graphics-design/brandpack7.jpeg" class="img-fluid rounded" alt="Packaging Design">
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Examples Section -->
+<section class="py-5 bg-light">
+<div class="container">
+    <h2 class="text-center mb-4">Our Packaging Designs</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="smg-card">
+                <img src="/static/codefyn-5.0/images/services/graphics-design/brandpack3.png" class="smg-card-img-top" alt="Example 1">
+                <div class="card-body">
+                    <h5 class="smg-card-title">Eco-Friendly Packaging</h5>
+                    <p class="smg-card-text">Designs that prioritize sustainability without compromising on aesthetics.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="smg-card">
+                <img src="/static/codefyn-5.0/images/services/graphics-design/brandpack2.png" class="smg-card-img-top" alt="Example 2">
+                <div class="card-body">
+                    <h5 class="smg-card-title">Premium Packaging</h5>
+                    <p class="smg-card-text">Luxurious packaging that enhances the perceived value of your product.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="smg-card">
+                <img src="/static/codefyn-5.0/images/services/graphics-design/brandpack.png" class="smg-card-img-top" alt="Example 3">
+                <div class="card-body">
+                    <h5 class="smg-card-title">Innovative Designs</h5>
+                    <p class="smg-card-text">Creative solutions that differentiate your product in a crowded market.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="py-5 text-center">
+<div class="container">
+    <h2>Transform Your Packaging Today!</h2>
+    <p>Ready to make a lasting impression with your product packaging? Contact us to start designing packaging that not only looks great but also enhances your brand’s impact.</p>
+    <a href="{% url 'Home:project_discuss' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+</div>
+</section>
+
+
+
+   
+
+{% endblock %}

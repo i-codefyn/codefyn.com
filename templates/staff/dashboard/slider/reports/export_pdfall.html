@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <style>
+            * {
+                font-size: 15px;
+            }
+
+            table {
+                table-layout: fixed;
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            table th {
+                text-align: left;
+                padding: 3px;
+                padding-bottom: 0;
+            }
+
+            table td {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 3px;
+                padding-bottom: 0;
+            }
+         .sign{
+
+            margin-top: 1px;
+            text-align: right;
+            align-content: right;
+            align-items: right;
+         }
+         .date{
+            margin-top: 20px;
+            align-items: left;
+            align-content: left;
+         }
+         .row{
+            width: 100%;
+         }
+         .col-md-6{
+            width: 50%;
+         }
+        .stamp{
+            height: 100px;
+            width: 100px;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        
+        <table><tr>
+            <th>{% for app in app_data %}
+                <img src="{{ app.app_logo.url }}" style="width: 160px; height: 40px; text-align: center;">
+            <p style="text-align: center;" > {{ app.domain_name }}| {{ app.app_email }} | Mob:{{ app.app_mobile }} </p>
+            <p style="text-align: center; " > {{ app.app_address }} </p>
+            <hr> 
+                   <h3 style="text-align: center;">{{ doc_name }} </h3>
+                  </th></tr>
+                </table>
+                   <table>
+            <tr>
+                <th> S No </th>
+                <th> Headding1 Title</th>
+                <th> Headding2 Title</th>
+                <th> Headding3 Title</th>
+               
+                
+            </tr>
+            {%for data in slider %}
+            <tr>
+                <td style="width: 10%;"> {{forloop.counter}} </td>
+                <td sttyle="width: 40%; text-align: left;"> {{data.heading1_title}} </td>
+                <td sttyle="width: 40%; text-align: left;"> {{data.heading2_title}} </td>
+                <td sttyle="width: 40%; text-align: left;"> {{data.heading3_title}} </td>
+                
+               
+                
+            </tr>
+            {%endfor%}
+        </table>
+ 
+        <div class="row">
+            <div  class=" col-md-6">
+            <div class="date" >Date:{{ time }} </div>
+            </div>
+            <div class="col-md-6 ">
+            <div class="sign"><img src="{{ app.app_stamp.url }}" class="stamp" ></div>
+            </div>
+            </div>
+            {% endfor %}
+       
+       
+    </body>
+</html>

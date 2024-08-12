@@ -1,0 +1,104 @@
+
+{% extends 'layouts/base_dash.html'%}
+{% block content %}
+<main class="main-content">
+  <div class="bg-light">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center
+      pb-1">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'staff' %}">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% if pagename %}{{pagename}}{% endif %}</li>
+        </ol>
+      </nav>
+       <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="">
+        <div class="row g-2">
+          <div class="col-md">
+            {% load crispy_forms_tags %}
+            <form method="POST" action="{% url 'online_requests_list_bydate'%}" >
+            {% csrf_token %}
+              {{ form.startdate }}
+          </div>
+          <div class="col-md">
+           {{ form.enddate }}
+            </div>
+            <div class="col-md">
+            <button  type="submit" value="filter" class="btn btn-primary" ><i class="bi bi-search"></i></button>
+            </div>
+        </div>
+    </div>
+      </div>
+        </form>
+
+      </div>
+    <!-- Dashboard Counts Section-->
+  <div class="card box-lg">
+    <div class="row">
+          <div class="w-100">
+            <table id = "table" class="table table-bordered border-secondary table-hover">
+              <thead class = "alert-success">
+                <tr>
+                  <th width="1%" scope="col">S.No:</th>
+
+                  <th width="20%" scope="col">Email</th>
+                  <th width="40%" scope="col">Rating</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {% if feedback %}
+                  {% for f in feedback %}
+                  <th scope="row">{{ forloop.counter }}</th>
+                  <td>{{ f.email }}</td>
+                  <td>{{ f.rating }}</td>
+
+                </tr>
+                {% endfor %}
+                {% else %}
+                <div class="alert-danger">No data to display</div>
+                {% endif %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+
+<div class="modal fade" id="FeedbackModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select The Date Range </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="">
+          <div class="row g-2">
+            <div class="col-md">
+          {% load crispy_forms_tags %}
+          <form method="POST" action="" >
+          {% csrf_token %}
+            {{ form.startdate }}
+        </div>
+        <div class="col-md">
+         {{ form.enddate }}
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" value="filter" class="btn btn-primary"><i class="bi bi-files"></i> Export PDF</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,75 @@
+{% extends 'layouts/_base.html' %} {% block content %}
+<!-- Contact Form -->
+<section class="bg-light">
+  <div class="container pt-5">
+    <div class="contact-container">
+      <div class="p-4">
+        <div class="row">
+          <div class="col-md-8 text-center">
+            <div class="map pt-4">
+              <img
+                src="/static/codefyn-5.0/images/quaote.png"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col-md-4 bg-white rounded-5 p-4 mt-4">
+            <form method="post" id="ContactForm" enctype="multipart/form-data">
+              {% csrf_token %}
+              <h2 class="text-center">
+                <strong><span class="text-muted"> Quick </span></strong
+                ><span class="text-primary">Enquiry!</span>
+              </h2>
+              <div class="col-md form-floating pb-2">
+                {{ form_contact.name }}
+                <li class="errors">{{ form_contact.name.errors }}</li>
+                <label for="floatingInput text-bold">
+                  <i class="bi bi-people-fill mr5 form-i"></i>
+                  <span class="text-color-black fw-bold mb-3">Name</span>
+                </label>
+              </div>
+              <div class="col-md form-floating pb-2">
+                {{ form_contact.email }}
+                <li class="errors">{{ form_contact.email.errors }}</li>
+                <label for="floatingInput text-bold">
+                  <i class="bi-envelope-at-fill mr5 form-i"></i>
+                  <span class="text-color-black fw-bold mb-3">Email</span>
+                </label>
+              </div>
+              <div class="col-md form-floating">
+                {{ form_contact.message }}
+                <li class="errors">{{ form_contact.message.errors }}</li>
+                <label for="floatingInput text-bold">
+                  <i class="bi bi-chat-left mr5 form-i"></i>
+                  <span class="text-color-black fw-bold mb-3">Message</span>
+                </label>
+              </div>
+              <div class="mt-3">
+                {{ form_contact.captcha }}
+                <li class="errors">{{ form_contact.captcha.errors }}</li>
+              </div>
+              <div class="mb-2">
+                <button class="btn-red d-block w-100 mt-3" type="submit">
+                  <i class="bi bi-send-check mr10"></i>Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact Form -->
+<script>
+  // FOrm Submit
+  $(document).ready(function () {
+    $(".preloader").hide();
+    $("#ContactForm").on("submit", function () {
+      $(".preloader").fadeIn();
+    }); //submit
+  });
+  // end form submit
+</script>
+{% endblock %}

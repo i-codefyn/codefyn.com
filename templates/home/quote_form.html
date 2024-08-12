@@ -1,0 +1,37 @@
+{% extends 'layouts/_base.html' %}
+{% block content %}
+<!-- Contact Form -->
+<section class="bg-light">
+  <div class="container">
+    <div class="contact-container">
+      <div class="p-4">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <div class="">
+              <img
+                src="/static/codefyn-5.0/images/caregrl.png"
+                class="img-fluid "
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col-md-9 bg-white rounded-5">
+            {% include 'home/includes/main_form.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact Form -->
+<script>
+  // FOrm Submit
+  $(document).ready(function () {
+    $(".preloader").hide();
+    $("#ContactForm").on("submit", function () {
+      $(".preloader").fadeIn();
+    }); //submit
+  });
+  // end form submit
+</script>
+{% endblock %}

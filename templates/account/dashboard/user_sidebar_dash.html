@@ -1,0 +1,38 @@
+
+<div class="wrapper  toggled ">
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+      {% if user.is_authenticated %}
+
+      <ul class=" flex-column">
+        <li class="nav-item active1 ">
+          <a class="nav-link" href="{% url 'staff' %}">
+            <i class="bi bi-houses-fill px-1"></i> Dashboard
+          </a>
+        </li>
+
+        <hr>
+        </li>
+
+
+    </li>
+      <ul class="nav flex-column  navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="bi bi-chat-square-quote mr10"></i> Free Quote
+          </a>
+        </li>
+      </ul>
+      <ul class="nav flex-column mb-2 navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <i class="bi bi-person-workspace mr10"></i> Applied Quetos
+          </a>
+        </li>
+      </ul>
+
+      {% endif  %}
+
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->

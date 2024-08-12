@@ -1,0 +1,51 @@
+{% extends 'layouts/_base_.html'%} {% load crispy_forms_tags %}
+{% block title%} Login - Codefyn{% endblock title %}
+{% block content%}
+<section class="bg-light">
+  <div class="container">
+    <div class="p-4">
+      <div class="p-4">
+        <div class="row">
+          <div class="col-md-8 text-center">
+            <img src="/static/codefyn-5.0/images/bg/secure_login.svg" />
+          </div>
+          <div class="col-md-4 p-4 bg-white rounded-5">
+            <form method="post" enctype="multipart/form-data" id="LoginForm">
+              {% csrf_token %}
+              <div class="text-center">
+                <img
+                  src="/static/codefyn-5.0/images/logo.svg"
+                  class="logo-sm mb-3"
+                />
+                <h5>
+                  <span class="text-muted">Login </span
+                  ><span class="text-danger">Page</span>
+                </h5>
+              </div>
+              <div class="">{{ form|crispy }}</div>
+              <div class="mb-3 mt-2 text-center">
+                <button class="btn-red d-block w-100" type="submit">
+                  <i class="bi bi-lock mr10"></i>Submit
+                </button>
+                <a class="already text-muted " href="{% url 'account_signup' %}"
+                  >Free Signup here.</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // FOrm Submit
+    $(document).ready(function () {
+      $(".preloader").hide();
+      $("#LoginForm").on("submit", function () {
+        $(".preloader").fadeIn();
+      }); //submit
+    });
+    // end form submit
+  </script>
+</section>
+{% endblock content %}

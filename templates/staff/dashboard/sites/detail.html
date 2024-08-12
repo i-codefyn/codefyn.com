@@ -1,0 +1,82 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1"
+    >
+      <h1 class="h4 ms-2">{% if pagename %}{{pagename}}{% endif %}</h1>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="btn-group me-1">
+          <a href="{% url 'site_list'%}" type="button" class="btn btn-warning"
+            ><i class="bi bi-arrow-left"></i> Back</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Dashboard Counts Section-->
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <h3 class="text-center text-muted">Site Details</h3>
+          <hr />
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Site Name</th>
+                <th scope="col">Domain</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ sites.display_name }}</td>
+                <td>{{ sites.domain_name }}</td>
+                <td>{{ sites.app_email }}</td>
+              </tr>
+              <tr>
+                <th scope="col">App Mobile</th>
+                <th scope="col">Company Address</th>
+                <th scope="col">App Version</th>
+              </tr>
+              <tr>
+                <td>{{ sites.app_mobile }}</td>
+                <td>{{ sites.app_address }}</td>
+                <td>{{ sites.app_version }}</td>
+              </tr>
+              <tr>
+                <th scope="col">App Logo</th>
+                <th scope="col">App Fevicon</th>
+                <th scope="col">App Stamp</th>
+              </tr>
+
+              <tr>
+                <td>
+                  <img
+                    src="{{ sites.app_logo.url }}"
+                    style="width: 140px; height: 30px; text-align: center"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="{{ sites.app_fevicon.url }}"
+                    style="width: 40px; height: 40px; text-align: center"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="{{ sites.app_stamp.url }}"
+                    style="width: 40px; height: 40px; text-align: center"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <!--wrapper end-->
+  {% endblock %}
+</main>

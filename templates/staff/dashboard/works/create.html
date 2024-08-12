@@ -1,0 +1,64 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="bg-light">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center px-3 pt-2">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'staff' %}">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {% if pagename %}{{pagename}}{% endif %}
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <!--end-->
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <h3 class="text-center text-muted">Worksheet Create Form</h3>
+          <hr />
+          {% load crispy_forms_tags %}
+          <form method="post" validate id="Form" action="{% url 'work_sheet_create' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row g-2 mb-3">
+              <div class="col-md">{{ work_sheet_form.name }}</div>
+              <div class="col-md">{{ work_sheet_form.mobile }}</div>
+              <div class="col-md">{{ work_sheet_form.email }}</div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-4">{{ work_sheet_form.device_name }}</div>
+              <div class="col-md-8">{{ work_sheet_form.device_problem }}</div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md d-none">{{ work_sheet_form.status }}</div>
+              <div class="col-md"></div>
+              <div class="col-md">
+                <div class="text-end">
+                  <a type="button" class="btn btn-danger" href="{% url 'work_sheet_list' %}">
+                    <i class="bi bi-caret-left"></i>Back</a>
+                  <button type="submit" value="filter" class="btn btn-primary">
+                    <i class="bi bi-send-check mr10"></i> Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $(".preloader").hide();
+      $("#Form").on("submit", function () {
+        $(".preloader").fadeIn();
+      }); //submit
+    });
+  </script>
+  <!--wrapper end-->
+
+  {% endblock %}
+</main>

@@ -1,0 +1,10 @@
+{% extends 'layouts/_base.html' %}
+{% block title %}Services{% endblock title %}
+{% block content %}
+{% for service in service_list %}
+<div>
+<h2><a href="{{ service.get_absolute_url }}">{{ service.service_name }}</a></h2>
+
+</div>
+{% endfor %}
+{% endblock content %}

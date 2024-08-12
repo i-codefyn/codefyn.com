@@ -1,0 +1,47 @@
+
+{% extends 'layouts/_base.html'%} {% block content %}
+
+<!-- Hero Section -->
+<section class="logo-design-hero-section">
+    <h1 class="logo-design-hero-title">Professional Logo Design Services</h1>
+    <p class="logo-design-hero-subtitle">Crafting unique and memorable logos to elevate your brand.</p>
+</section>
+
+<!-- Services Section -->
+<section class="container my-5 py-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card logo-design-service-card text-center">
+                <div class="logo-design-service-icon mb-3">
+                    <i class="bi bi-pencil"></i> <!-- Bootstrap Icons -->
+                </div>
+                <h5 class="logo-design-service-title">Custom Logo Design</h5>
+                <p class="logo-design-service-description">Get a unique logo designed specifically for your brand that stands out in the marketplace.</p>
+                <a href="{% url 'services:custom_logo_design' %}" class="logo-design-contact-btn">Learn More</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card logo-design-service-card text-center">
+                <div class="logo-design-service-icon mb-3">
+                    <i class="bi bi-palette"></i> <!-- Bootstrap Icons -->
+                </div>
+                <h5 class="logo-design-service-title">Logo Redesign</h5>
+                <p class="logo-design-service-description">Revamp your existing logo to better align with current trends and your evolving brand identity.</p>
+                <a href="{% url 'services:logo_redesign' %}" class="logo-design-contact-btn">Learn More</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card logo-design-service-card text-center">
+                <div class="logo-design-service-icon mb-3">
+                    <i class="bi bi-vector-pen"></i> <!-- Bootstrap Icons -->
+                </div>
+                <h5 class="logo-design-service-title">Brand Identity Packages</h5>
+                <p class="logo-design-service-description">Comprehensive branding packages including logo design, business cards, and brand guidelines.</p>
+                <a href="{% url 'services:brand_logo_design' %}" class="logo-design-contact-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

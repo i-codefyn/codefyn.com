@@ -1,0 +1,53 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+    <!-- g-hero Section -->
+    <header class="g-hero">
+        <div class="container">
+            <h1>Graphic Design Services</h1>
+            <p class="text-white">Elevate your brand with stunning designs tailored to your needs.</p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 col-lg-4">
+                    <div class="g-card text-center">
+                        <img src="/static/codefyn-5.0/images/services/graphics-design/graphics3.jpeg" class="g-card-img-top" alt="Social Media Graphics">
+                        <div class="card-body">
+                            <h5 class="g-card-title">Social Media Graphics</h5>
+                            <p class="g-card-text">Design engaging graphics for social media platforms to increase your brand’s online presence.</p>
+                            <a href="{% url 'services:graphics_sm' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="g-card text-center">
+                        <img src="/static/codefyn-5.0/images/services/graphics-design/graphics4.jpeg" class="g-card-img-top" alt="Packaging Design">
+                        <div class="card-body">
+                            <h5 class="g-card-title">Packaging Design</h5>
+                            <p class="g-card-text">Design innovative packaging that grabs attention and communicates your brand’s message effectively.</p>
+                            <a href="{% url 'services:graphics_pack' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="g-card text-center">
+                        <img src="/static/codefyn-5.0/images/services/graphics-design/socialmedia.jpeg" class="g-card-img-top" alt="Marketing Materials">
+                        <div class="card-body">
+                            <h5 class="g-card-title">Marketing Materials</h5>
+                            <p class="g-card-text">Design eye-catching materials for your marketing campaigns.</p>
+                            <a href="{% url 'services:marketing' %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+   
+
+{% endblock %}

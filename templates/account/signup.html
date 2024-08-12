@@ -1,0 +1,43 @@
+{% extends 'layouts/_base_.html' %} {% load crispy_forms_tags %}
+ {% block title%} Sign Up - Codefyn{% endblock title %} {% block content %}
+<section class="bg-light">
+  <div class="container">
+    <div class="p-4">
+      <div class="p-4">
+        <div class="row">
+          <div class="col-md-8 text-center">
+            <img src="/static/codefyn-5.0/images/bg/authentication_.svg" />
+          </div>
+          <div class="col-md-4 p-4 bg-white rounded-5">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="text-center">
+                <img
+                  src="/static/codefyn-5.0/images/logo.svg"
+                  class="logo-sm mb-3"
+                />
+                <h5>
+                  <span class="text-muted">Signup </span
+                  ><span class="text-danger">Page</span>
+                </h5>
+              </div>
+              <div class="g-2 mb-3">
+                <div class="col">{{ form |crispy }}</div>
+              </div>
+              <div class="mb-3 mt-2">
+                <button class="btn-red d-block w-100" type="submit">
+                  <i class="bi bi-send-check mr10"></i> Submit
+                </button>
+                <a class="already text-muted" href="{% url 'account_login' %}"
+                  >You already have an account? Login here.</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

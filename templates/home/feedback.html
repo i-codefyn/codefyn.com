@@ -1,0 +1,109 @@
+{% extends 'layouts/_base.html'%} {% load crispy_forms_tags %}
+{% block content %}
+<!-- Feedback section -->
+<section class="bg-light">
+  <div class="pt-5">
+    <div class="container">
+      <div class="p-4">
+        <div class="p-4">
+          <div class="row">
+            <div class="col-md-8 text-center">
+              <img src="/static/codefyn-5.0/images/bg/feedback.svg" />
+            </div>
+            <div class="col-md-4 p-4 bg-white rounded-5">
+              <form
+                id="FeedbackForm"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                {% csrf_token %}
+                <h2 class="text-center">
+                  <strong>Feedback</strong
+                  ><span class="text-primary"> Form</span>
+                </h2>
+                <div class="g-2 mb-3">
+                  <div class="col-md form-floating">
+                    {{ form.email }}
+                    <li class="errors">{{ form.email.errors }}</li>
+                    <label for="floatingInput text-bold">
+                      <i class="bi bi-envelope-at-fill mr5 form-i"></i>
+                      <span class="text-color-black fw-bold">
+                        Email
+                      </span></label
+                    >
+                  </div>
+                  <div class="col-md mt-2 mb-5 text-center pb-5">
+                    <div class="rate form-control">
+                      <div class="rate">
+                        <input
+                          type="radio"
+                          id="star5"
+                          name="rating"
+                          value="5"
+                        />
+                        <label for="star5" title="text">5 stars</label>
+                        <input
+                          type="radio"
+                          id="star4"
+                          name="rating"
+                          value="4"
+                        />
+                        <label for="star4" title="text">4 stars</label>
+                        <input
+                          type="radio"
+                          id="star3"
+                          name="rating"
+                          value="3"
+                        />
+                        <label for="star3" title="text">3 stars</label>
+                        <input
+                          type="radio"
+                          id="star2"
+                          name="rating"
+                          value="2"
+                        />
+                        <label for="star2" title="text">2 stars</label>
+                        <input
+                          type="radio"
+                          id="star1"
+                          name="rating"
+                          value="1"
+                        />
+                        <label for="star1" title="text">1 star</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  {{ form.captcha }}
+                  <li class="errors">{{ form.captcha.errors }}</li>
+                </div>
+                <div class="mb-3 mt-2">
+                  <button
+                    class="btn-red d-block w-100"
+                    name="submit"
+                    type="submit"
+                  >
+                    <i class="bi bi-send-check px-2 mt-3"></i> Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // FOrm Submit
+  $(document).ready(function () {
+    $(".preloader").hide();
+    $("#FeedbackForm").on("submit", function () {
+      $(".preloader").fadeIn();
+    }); //submit
+  });
+  // end form submit
+</script>
+{% endblock %}

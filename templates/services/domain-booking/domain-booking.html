@@ -1,0 +1,103 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+<style>
+ 
+ 
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="domain-b-hero-section text-center">
+        <div class="domain-b-hero-overlay"></div>
+        <div class="container domain-b-hero-content">
+            <h1>Find the Perfect Domain Name</h1>
+            <p class="text-white">Your journey to a strong online presence starts here.</p>
+            <a href="{% url 'Home:project_discuss' %}" class="btn domain-b-btn-custom btn-lg mt-4">Start Your Search</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2>About Our Domain Booking Service</h2>
+                    <p>Finding the right domain name is crucial for establishing your online presence. Our domain booking service makes it easy to secure the domain name that best represents your brand.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Wide selection of domain extensions</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Instant domain availability check</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Secure domain registration process</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 support for any issues</li>
+                    </ul>
+                    <p>Whether you're starting a new business or looking to rebrand, we've got you covered. Let us help you find the domain that suits your needs.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card domain-b-service-card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Key Benefits</h5>
+                            <ul>
+                                <li><i class="bi bi-lightning-fill text-warning me-2"></i>Fast and reliable service</li>
+                                <li><i class="bi bi-cash-coin text-warning me-2"></i>Affordable pricing</li>
+                                <li><i class="bi bi-shield-lock-fill text-warning me-2"></i>Domain privacy protection</li>
+                                <li><i class="bi bi-tools text-warning me-2"></i>Easy management tools</li>
+                            </ul>
+                            <a href="{% url 'Home:project_discuss' %}" class="btn btn-primary mt-3">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="card domain-b-service-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Need Help?</h5>
+                            <p>Contact our support team anytime for assistance with domain booking.</p>
+                            <a href="{% url 'Home:contactus' %}" class="btn btn-secondary">Contact Support</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Choose Our Domain Booking Service?</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="domain-b-icon-container">
+                        <i class="bi bi-globe2 domain-b-icon-style"></i>
+                    </div>
+                    <div class="card domain-b-service-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Wide Selection</h5>
+                            <p>Choose from a variety of domain extensions to find the perfect fit for your brand.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="domain-b-icon-container">
+                        <i class="bi bi-lightning-charge-fill domain-b-icon-style"></i>
+                    </div>
+                    <div class="card domain-b-service-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Instant Availability</h5>
+                            <p>Check domain availability in real-time and secure your preferred name instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="domain-b-icon-container">
+                        <i class="bi bi-headset domain-b-icon-style"></i>
+                    </div>
+                    <div class="card domain-b-service-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">24/7 Support</h5>
+                            <p>Our support team is always ready to assist you with any questions or issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+{% endblock %}

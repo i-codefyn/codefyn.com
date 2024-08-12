@@ -1,0 +1,68 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+
+<!-- Hero Section -->
+<section class="quick-commerce-payment-hero-section">
+    <div class="container">
+        <h1 class="quick-commerce-payment-hero-title">Payment Gateway Integration</h1>
+        <p class="quick-commerce-payment-hero-subtitle text-white">Seamlessly integrate secure payment options into your eCommerce site.</p>
+    </div>
+</section>
+
+<!-- Service Detail Section -->
+<section class="quick-commerce-payment-service-detail container">
+    <h2>Why Choose Our Payment Gateway Integration?</h2>
+    <p>Integrating a payment gateway into your online store is crucial for processing transactions smoothly and securely. Our service ensures that your eCommerce platform is equipped with the most reliable and secure payment solutions, tailored to meet your business needs.</p>
+    
+    <!-- How It Works Section -->
+    <div class="quick-commerce-payment-how-it-works">
+        <h3>How It Works</h3>
+        <div class="quick-commerce-payment-steps-list">
+            <div class="quick-commerce-payment-step-item">
+                <div class="quick-commerce-payment-step-icon">
+                    <i class="bi bi-credit-card"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-payment-step-title">Step 1: Consultation</div>
+                    <div class="quick-commerce-payment-step-description">We assess your business requirements and recommend the best payment gateway solutions for you.</div>
+                </div>
+            </div>
+            <div class="quick-commerce-payment-step-item">
+                <div class="quick-commerce-payment-step-icon">
+                    <i class="bi bi-gear"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-payment-step-title">Step 2: Integration</div>
+                    <div class="quick-commerce-payment-step-description">Our team integrates the payment gateway into your eCommerce platform, ensuring a smooth and secure setup.</div>
+                </div>
+            </div>
+            <div class="quick-commerce-payment-step-item">
+                <div class="quick-commerce-payment-step-icon">
+                    <i class="bi bi-check-circle"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-payment-step-title">Step 3: Testing</div>
+                    <div class="quick-commerce-payment-step-description">We thoroughly test the payment gateway to ensure it functions correctly and securely before going live.</div>
+                </div>
+            </div>
+            <div class="quick-commerce-payment-step-item">
+                <div class="quick-commerce-payment-step-icon">
+                    <i class="bi bi-shield-check"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-payment-step-title">Step 4: Go Live</div>
+                    <div class="quick-commerce-payment-step-description">After successful testing, we launch the payment gateway, providing ongoing support to ensure smooth operations.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Button -->
+    <a href="{% url 'Home:project_discuss' %}" class="quick-commerce-payment-cta-btn">Integrate Now</a>
+
+    <!-- Back Button -->
+    <a href="{% url 'services:quick_commerce' %}" class="quick-commerce-payment-back-btn">Back to Services</a>
+</section>
+
+   
+{% endblock %}

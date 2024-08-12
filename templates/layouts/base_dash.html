@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+      {% block title %}Codefyn
+      - {{ page_title }} {% endblock %}
+    </title>
+    <meta name="keywords" content="{{ key.keyword }}" />
+    <meta name="description" content="{{ key.description }}" />
+     {% load static %}
+     <link rel="shortcut icon" type="image/png" href="{% static 'codefyn-5.0/images/favicon.png' %}"/>
+     {% load static compress %}
+     {% compress css %}
+      <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/vendor/DataTables/datatables.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/vendor/bootstrap-5.0.2/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/vendor/font/bootstrap-icons.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'codefyn-5.0/css/base_dash_style.css' %}"
+    />
+    {% endcompress %}
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/vendor/sweetalert/sweetalert2.all.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/vendor/jquery-3.5/jquery.min.js' %}"
+    ></script>
+
+    {% block nav %} {% include 'staff/dashboard/nav_dash.html' %} {% endblock %}
+    {% block sidenav %} {% include 'staff/dashboard/sidebar_dash.html' %}
+    {%endblock %}
+    {% block messages %} {% include 'alerts/messages.html' %}
+    {% endblock %}
+    {% block content %} {% endblock %}
+    {% block footer %} {% include 'staff/dashboard/footer_dash.html' %} {% endblock%}
+    {% block logout %} <form
+    method="post"
+    id="logoutform"
+    action="{% url 'account_logout' %}"
+     >
+    {% csrf_token %}
+    </form>
+  <!-- Logout  -->
+    {% endblock%}
+    {% block script_bottom %}
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/vendor/DataTables/datatables.min.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/vendor/bootstrap-5.0.2/js/bootstrap.bundle.min.js' %} "
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{% static 'codefyn-5.0/js/dash.js' %} "
+    ></script>
+    {% compress js %}
+    <script type="text/javascript">
+      // Form Submit
+      $(document).ready(function () {
+        $(".preloader").hide();
+        $("#Form").on("submit", function () {
+          $(".preloader").fadeIn();
+        }); //submit
+      });
+      // end form submit
+      function logoutFunction() {
+  swal.fire({
+  title: "Sure Want to Logout ?",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "OK",
+  closeOnConfirm: true,
+  closeOnCancel: false,
+})
+.then((result) => {
+  if (result.value === true) {
+    $("#logoutform").submit(); // this submits the form
+  }
+});
+   }//delet alert
+
+      function confirmFunction() {
+        event.preventDefault(); // prevent form submit
+        var form = event.target.form; // storing the form
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.value) {
+            form.submit();
+          }
+        });
+      }
+      //end delete alert
+
+      //<!--logout alert -->
+
+      function confirmLogoutFunction() {
+        event.preventDefault(); // prevent form submit
+        var form = event.target.form; // storing the form
+        Swal.fire({
+          title: "Are you sure?",
+          text: "Want to Logout !",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes,Logout!",
+        }).then((result) => {
+          if (result.value) {
+            form.submit();
+          }
+        });
+      }
+
+      //end logout alert
+      (function () {
+        "use strict";
+        var tooltipTriggerList = [].slice.call(
+          document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        );
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+          new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      })();
+
+      $(document).ready(function () {
+        $("#table").DataTable();
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("ul.navbar-nav > li").click(function (e) {
+          $("ul.navbar-nav > li").removeClass("active1");
+          $(this).addClass("active1");
+        });
+      });
+
+      $(document).ready(function () {
+        $("#sidebarsrink").click(function () {
+          $(".wrapper").toggleClass("toggled");
+        });
+
+        $("#srink").click(function () {
+          $(".wrapper.").toggleClass("toggled1");
+        });
+      });
+    </script>
+    {% endcompress %}
+    {% endblock %}
+  </head>
+</html>

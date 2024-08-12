@@ -1,0 +1,46 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+
+<!-- Service Header Section -->
+<header class="custom-logo-design-service-header">
+<div class="container my-5 py-5">
+    <h1>Custom Logo Design</h1>
+    <p class="text-white">Bring your brand to life with a unique and memorable logo design.</p>
+</div>
+</header>
+
+<!-- Service Content Section -->
+<section class="custom-logo-design-service-content container">
+<h2>Why Choose Our Custom Logo Design Service?</h2>
+<p>Your logo is the face of your brand, and it should be as unique as your business. Our custom logo design service
+    is tailored to capture the essence of your brand and communicate it effectively to your audience. With a
+    team of experienced designers, we ensure that your logo will stand out, be memorable, and be versatile for
+    use across all your branding materials.</p>
+
+<h2>What You Get:</h2>
+<ul>
+    <li>A unique, custom-designed logo that reflects your brand's identity.</li>
+    <li>Multiple design concepts to choose from.</li>
+    <li>Unlimited revisions until you are completely satisfied.</li>
+    <li>High-resolution files suitable for print, web, and social media.</li>
+    <li>Full ownership of the final logo design.</li>
+</ul>
+
+<h2>Our Process:</h2>
+<p>We follow a simple, yet effective process to deliver a logo that meets your expectations:</p>
+<ul>
+    <li><strong>1. Discovery:</strong> We start by understanding your brand, target audience, and design
+        preferences.</li>
+    <li><strong>2. Concept Development:</strong> Our designers create multiple logo concepts based on the
+        information gathered.</li>
+    <li><strong>3. Feedback & Revisions:</strong> You provide feedback, and we refine the design until it’s
+        perfect.</li>
+    <li><strong>4. Final Delivery:</strong> Once approved, we deliver the final logo files in all necessary
+        formats.</li>
+</ul>
+
+<a href="{% url 'Home:project_discuss' %}" class="cta-btn">Get Started with Your Logo Design</a>
+<a href="{% url 'services:logo_design' %}" class="custom-logo-design-back-btn">Back to Services</a>
+</section>
+
+    {% endblock %}

@@ -1,0 +1,52 @@
+
+{% extends 'layouts/base_dash.html'%}
+{% block content %}
+
+<main class="main-content">
+  <div class="bg-light">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  
+      pb-1">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'staff' %}">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% if pagename %}{{pagename}}{% endif %}</li>
+        </ol>
+      </nav>
+       <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="btn-group me-1">
+          <a  href="{% url 'oc_list' %}"   type="button" class="btn  btn-warning"><i class="bi bi-arrow-left"></i> Back</a>
+        </div>
+      </div>
+    </div>
+  <!-- Dashboard Counts Section-->
+    <div class="card box-lg">
+          <div class="row">
+            <div class="w-100">
+              <h3 class="text-center text-muted">Our Clients Update Form</h3>
+              <hr>
+              {% load crispy_forms_tags %}
+       
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row g-2 mb-3">
+                  <div class="col-md">
+                    {{ form|crispy }}
+                  </div>
+                  <div class="text-end">
+                    <a type="button" class="btn btn-danger" href="{% url 'oc_list' %}">
+                      <i class="bi bi-caret-left"></i>Back</a>
+                    <button type="submit" value="filter" class="btn btn-primary">
+                      <i class="bi bi-send-check mr10"></i> Save</button>
+                  </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--end-->
+
+{% endblock %}
+
+    

@@ -1,0 +1,51 @@
+{% extends 'layouts/_base_.html'%}
+{% block content %} {% load crispy_forms_tags%}
+ {% include 'home/includes/messages.html' %}
+
+<!-- Regsitration form -->
+<div class="container">
+  <div class="text-center r10">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 mt-5">
+        <div class="mt-5 otp-signup-form text-center pb-3 shadow otp-form">
+          <img src="../media/images/logo.svg" class="p-3 px-4 logo" />
+          {{ redirect_to_login_immediately }}
+          <h5 class="p-3">Get Verification Code</h5>
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+          </ul>
+          {% endif %}
+          <form  method="POST" class="p-4" novalidate>
+            {% csrf_token %}
+            <div class="row">
+              <div class="col">
+                <div class="text-success ">{{ user.email }}</div>
+                <input  class="d-none " name="email"  placeholder="{{ user.email }}" value="{{ user.email }}">
+              </div>
+              <div class="col mt-2 px-5">
+                {{ form.captcha }}
+
+              </div>
+            </div>
+
+            <div class="form-floating">
+
+              <button class="btn-orange p-3 px-5 mt-2 w-100">
+                <i class="bi bi-check2-circle mr5"></i>
+                Get Code
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    {% endblock %}
+  </div>
+</div>

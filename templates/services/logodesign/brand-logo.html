@@ -1,0 +1,38 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+<!-- Service Header Section -->
+<header class="brand-logo-service-header">
+    <div class="container">
+        <h1>Brand Identity Packages</h1>
+        <p class="text-white" >Comprehensive solutions for building a strong and cohesive brand identity.</p>
+    </div>
+</header>
+
+<!-- Service Content Section -->
+<section class="brand-logo-service-content container">
+    <h2>What's Included in Our Brand Identity Packages?</h2>
+    <p>Building a strong brand identity is essential for establishing your business in the marketplace. Our Brand Identity Packages are designed to provide you with everything you need to create a consistent and memorable brand presence. From logo design to business cards and brand guidelines, we've got you covered.</p>
+
+    <h2>Package Features:</h2>
+    <ul>
+        <li>Custom logo design tailored to your brand.</li>
+        <li>Business card design with print-ready files.</li>
+        <li>Brand color palette and typography selection.</li>
+        <li>Comprehensive brand guidelines document.</li>
+        <li>Social media profile graphics and templates.</li>
+        <li>Letterhead and stationery design.</li>
+        <li>Unlimited revisions and final files in all necessary formats.</li>
+    </ul>
+
+    <h2>Our Approach:</h2>
+    <p>We take a holistic approach to brand identity development, ensuring that every element of your brand is cohesive and aligned with your business goals. Here's how we do it:</p>
+    <ul>
+        <li><strong>1. Discovery & Strategy:</strong> We start by understanding your business, audience, and brand goals.</li>
+        <li><strong>2. Design & Development:</strong> Our team crafts a visual identity that reflects your brand's personality and vision.</li>
+        <li><strong>3. Implementation:</strong> We provide all the necessary assets and guidelines to ensure consistent brand application across all platforms.</li>
+        <li><strong>4. Ongoing Support:</strong> We offer support and updates to ensure your brand remains relevant and impactful.</li>
+    </ul>
+
+<a href="{% url 'Home:project_discuss' %}" class="cta-btn">Get Your Brand Identity Package</a>
+<a href="{% url 'services:logo_design' %}" class="brand-logo-back-btn">Back to Services</a>
+</section>
+{% endblock %}

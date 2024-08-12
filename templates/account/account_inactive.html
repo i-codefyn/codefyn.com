@@ -1,0 +1,14 @@
+{% extends 'layouts/_base_.html'%}
+{% block title%}Account Inactivate -Codefyn{% endblock title %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Account Inactive" %}{% endblock %}
+
+{% block content %}
+<div class="bg-light p-5">
+<div class="container p-5">
+<h1 class="text-danger">{% trans "Account Inactive" %}</h1>
+
+<p>{% trans "This account is inactive." %}</p>
+{% endblock %}

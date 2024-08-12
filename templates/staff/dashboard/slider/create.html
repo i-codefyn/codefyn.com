@@ -1,0 +1,96 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1"
+    >
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'staff' %}">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {% if pagename %}{{pagename}}{% endif %}
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <!--end-->
+    <div class="card box-lg">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              {% load crispy_forms_tags %}
+              <div class="w-100">
+                <h3 class="text-center text-muted">Slider Create Form</h3>
+                <hr />
+                <form
+                  method="post"
+                  validate
+                  action="{% url 'slider_create' %}"
+                  enctype="multipart/form-data"
+                >
+                  {% csrf_token %}
+                  <div class="row g-2 mb-3">
+                    <div class="col-md">
+                      {{ form.heading1_title|as_crispy_field }}
+                    </div>
+                    <div class="col-md">
+                      {{ form.heading1|as_crispy_field }}
+                    </div>
+                    <div class="col-md">{{ form.bg1|as_crispy_field }}</div>
+                  </div>
+                  <div class="row g-2 mb-3">
+                    <div class="col-md">
+                      {{ form.heading2_title|as_crispy_field }}
+                    </div>
+                    <div class="col-md">
+                      {{ form.heading2|as_crispy_field }}
+                    </div>
+                    <div class="col-md">{{ form.bg2|as_crispy_field }}</div>
+                  </div>
+                  <div class="row g-2 mb-3">
+                    <div class="col-md">
+                      {{ form.heading3_title|as_crispy_field }}
+                    </div>
+                    <div class="col-md">{{ form.heading3|as_crispy_field}}</div>
+                    <div class="col-md">{{ form.bg3|as_crispy_field}}</div>
+                  </div>
+                  <div class="row g-2 mb-3">
+                    <div class="col-md">
+                      {{ form.heading4_title|as_crispy_field }}
+                    </div>
+                    <div class="col-md">
+                      {{ form.heading4|as_crispy_field }}
+                      <li class="form-errors">{{ form.heading4.errors }}</li>
+                    </div>
+                    <div class="col-md">{{ form.bg4|as_crispy_field }}</div>
+                  </div>
+                  <div class="text-end">
+                    <a
+                      type="button"
+                      class="btn btn-danger"
+                      href="{% url 'slider_list' %}"
+                    >
+                      <i class="bi bi-caret-left"></i>Back</a
+                    >
+                    <button
+                      type="submit"
+                      value="filter"
+                      class="btn btn-primary"
+                    >
+                      <i class="bi bi-send-check mr10"></i> Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+  </div>
+</main>

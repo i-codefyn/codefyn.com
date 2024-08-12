@@ -1,0 +1,27 @@
+<!-- massage alert -->
+
+{% for message in messages %} {% if message.tags == 'success' %}
+<!-- sweetalert for success -->
+
+<script>
+  var m = "{{ message }}";
+  swal.fire({
+    title: `{{ message.tags }}`,
+    text: "{{ message|safe }}.",
+    icon: "success",
+    buttons: true,
+    dangerMode: true,
+  });
+</script>
+{% else %}
+<!-- sweetalert for error -->
+
+<script>
+  var m = "{{ message }}";
+  Swal.fire({
+    icon: "error",
+    title: `{{ message.tags }}`,
+    text: "{{ message|safe }}.",
+  });
+</script>
+{% endif %} {% endfor %}

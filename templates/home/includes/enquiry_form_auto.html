@@ -1,0 +1,41 @@
+
+  
+ 
+
+                <style>
+               
+                </style>
+
+<!-- Modal Structure -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- Close Button -->
+                <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <img
+                src="/static/codefyn-5.0/images/caregirl2.png"
+              class="img-fluid mb-3" alt="Model Image">
+               
+                <!-- Enquire Now Button with Link -->
+                <h5 class="text-muted text-center">"Ready to Help!"</h5>
+                <a href="{% url 'Home:project_discuss' %}" class="btn btn-orange w-100 p-2 text-white ">Enquire Now</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script to Auto-Load Modal on Page Load -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var myModal = new bootstrap.Modal(document.getElementById('enquiryModal'));
+            myModal.show();
+        }, 2000); // 20000 milliseconds = 20 seconds
+    });
+</script>
+
+ 

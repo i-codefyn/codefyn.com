@@ -1,0 +1,145 @@
+{% extends 'layouts/_base_.html'%} {% block content %}
+{% load crispy_forms_tags %}
+{% include 'home/includes/messages.html' %}
+{{ redirect_to_login_immediately }}
+
+
+<!-- Regsitration form -->
+<div class="container">
+  <div class="text-center r10">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 mt-5">
+        <div class="mt-5 otp-signup-form text-center pb-3 pt-2 shadow otp-form">
+          <img src="../media/images/logo.svg" class="logo" />
+          <h5 class="p-3">Check Your E-Mail for OTP</h5>
+          <form
+            id="CodeVerifyForm"
+            method="POST"
+            enctype="multipart/form-data"
+            class="p-4"
+            novalidate
+            action="{% url 'user_code_verify' %}"
+          >
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-3 col-md-3 mb-3">
+                {{ form.otp1 }}
+                <li class="main-form-errors">{{ form.otp1.errors }}</li>
+              </div>
+              <div class="col-3 col-md-3 mb-3">
+                {{ form.otp2 }}
+                <li class="main-form-errors">{{ form.otp2.errors }}</li>
+              </div>
+              <div class="col-3 col-md-3 mb-3">
+                {{ form.otp3 }}
+                <li class="main-form-errors">{{ form.otp3.errors }}</li>
+              </div>
+              <div class="col-3 col-md-3 mb-3">
+                {{ form.otp4 }}
+                <li class="main-form-errors">{{ form.otp4.errors }}</li>
+              </div>
+              <div class="col-3 col-md-3  px-5 pt-2">
+                {{ form.captcha }}
+                <li class="main-form-errors">{{ form.captcha.errors }}</li>
+              </div>
+            </div>
+            <div class="">
+              Time left = <span class="text-danger fw-bold" id="timer"></span>
+            </div>
+            <div class="form-floating">
+              <a class="resen" id="resen" href="{% url 'user_code_reset' %}"
+                >Resend OTP</a
+              >
+              <button class="btn-orange p-3 px-5 mt-2 w-100">
+                <i class="bi bi-check2-circle mr5"></i>
+                Verify
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="defaultCountdown"></div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <script>
+      // Ajax
+      $(document).ready(function () {
+        $(".preloader").hide();
+        $("#CodeVerifyForm").submit(function () {
+          // Ajax Call
+          $(".preloader").show();
+          $.ajax({
+            data: $(this).serialize(), //get data
+            type: $(this).attr("method"),
+            url: "{% url 'user_code_verify' %}",
+
+            //  on success weetalert
+            success: function (response) {
+              $(".preloader").hide();
+              swal
+                .fire({
+                  title: "Code Verified !",
+                  text: response.email,
+                  icon: "success",
+                  buttons: true,
+                  dangerMode: true,
+                })
+                .then(function () {
+                  window.location.href = "{% url 'user_dashboard' %}";
+                });
+            },
+            // on error swweet alert
+            error: function (response) {
+              $(".preloader").hide();
+              Swal.fire({
+                icon: "error",
+                title: "Invalid " + response.responseJSON.errors,
+                text: "Try Again !",
+              });
+            },
+          });
+          return false;
+        });
+      });
+      // Ajax End
+      // Timmer Start
+      let timerOn = true;
+
+      function timer(remaining) {
+        var m = Math.floor(remaining / 60);
+        var s = remaining % 60;
+
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+        document.getElementById("timer").innerHTML = m + ":" + s;
+        $("#resend").hide();
+        remaining -= 1;
+
+        if (remaining >= 0 && timerOn) {
+          setTimeout(function () {
+            timer(remaining);
+          }, 1000);
+          return;
+        }
+        if (!timerOn) {
+          $("#resend").hide();
+          // Do validate stuff here
+          return;
+        }
+        // Do timeout stuff here
+        Swal.fire({
+          icon: "error",
+          title: `OTP Expired`,
+        });
+        $("#resend").show();
+        document.getElementById("timer").innerHTML = "00" + ":" + "00";
+      }
+
+      timer(120);
+    </script>
+    <style></style>
+    {% endblock %}
+  </div>
+</div>

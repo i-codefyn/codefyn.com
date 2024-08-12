@@ -1,0 +1,52 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom pb-1"
+    >
+      <h1 class="h4 ms-2">{% if pagename %}{{pagename}}{% endif %}</h1>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="btn-group me-1">
+          <a href="{% url 'users_list' %}" type="button" class="btn btn-warning"
+            ><i class="bi bi-arrow-left"></i> Back</a
+          >
+          <a
+            href=" {{ users.get_absolute_url }}/pdf "
+            type="button"
+            class="btn btn-success"
+            ><i class="bi bi-download"></i> Download</a
+          >
+        </div>
+      </div>
+    </div>
+    <!--end-->
+    <div class="card box-lg">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th width="45%" scope="col">Name</th>
+                    <th width="45%" scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ users.username }}</td>
+                    <td>{{ users.email }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--wrapper end-->
+  {% endblock %}
+</main>

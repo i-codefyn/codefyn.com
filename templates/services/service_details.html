@@ -1,0 +1,21 @@
+{% extends 'layouts/_base.html' %}
+{% block title %}{{ service.service_name }}{% endblock title %}
+{% block content %}
+<div class="service-detail">
+    {% if service.bg_cover %}
+
+    <img class="" style="height: 200px;width: 200px;" src="{{ service.bg_cover.url}}" 
+    alt="{{ services.services_name }}">{% endif %}
+
+<h2><a href="">{{ service.service_name }}</a></h2>
+<p>{{ service.service_for }}</p>
+<p>{{ service.service_price }}</p>
+
+<h3>Reviews</h3>
+<ul>
+{% for review in service.reviews.all %}
+<li>{{ review.review }} ({{ review.author }})</li>
+{% endfor %}
+
+</div>
+{% endblock content %}

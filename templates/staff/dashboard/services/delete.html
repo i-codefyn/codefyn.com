@@ -1,0 +1,74 @@
+<main class="main-content">
+  <div class="container-fluid">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  
+    border-bottom bg-light">
+     <h1 class="h4 ms-2">{% if pagename %}{{pagename}}{% endif %}</h1>
+     <div class="btn-toolbar mb-2 me-1 mb-md-1">
+       <div class="btn-group me-1">
+         <button type="button" class="btn btn-sm btn-success"><i class="bi bi-plus-circle"></i> Add</button>
+         <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+       </div>
+       <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    
+         This week
+       </button>
+     </div>
+  
+ 
+           <!-- Dashboard Counts Section-->
+
+
+
+
+
+<!--end-->
+<!--wrapper end-->
+        
+</div>
+
+<div class="card box-lg">
+ 
+  <div class="card-body ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">S.No:{{ num }}</th>
+                <th scope="col">Service Name</th>
+                <th scope="col">Device Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>{% for data in services %}
+                
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{ data.service_name }}</td>
+                <td>{{ data.service_for }}</td>
+                <td>{{ data.service_price }}</td>
+                
+                
+                <td>
+                  <a class="btn btn-info btn-sm" href="http://"><i class="bi bi-eye text-white"></i></a>
+                  <a class="btn btn-warning btn-sm" href="http://"><i class="bi bi-pencil-square text-white"></i></a>
+                  <a class="btn btn-danger btn-sm" href="http://"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
+             
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-->
+<!--wrapper end-->
+
+</div>
+</div>

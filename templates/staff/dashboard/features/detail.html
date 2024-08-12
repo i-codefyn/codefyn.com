@@ -1,0 +1,71 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1"
+    >
+      <h1 class="h4 ms-2">{% if pagename %}{{pagename}}{% endif %}</h1>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="btn-group me-1">
+          <a
+            href="{% url 'feature_list' %}"
+            type="button"
+            class="btn btn-warning"
+            ><i class="bi bi-arrow-left"></i> Back</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Dashboard Counts Section-->
+    <!--end-->
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <table>
+            <div class="text-center"><h2>{{ features.main_title }}</h2></div>
+          </table>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Features Title</th>
+                <th scope="col">Features</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>{{ features.f1_title }}</td>
+                <td>{{ features.f1 }}</td>
+              </tr>
+              <tr>
+                <td>{{ features.f2_title }}</td>
+                <td>{{ features.f2 }}</td>
+              </tr>
+              <tr>
+                <td>{{ features.f3_title }}</td>
+                <td>{{ features.f3 }}</td>
+              </tr>
+
+              <tr>
+                <td>{{ features.f4_title }}</td>
+                <td>{{ features.f4 }}</td>
+              </tr>
+              <tr>
+                <td>{{features.f5_title }}</td>
+                <td>{{ features.f5 }}</td>
+              </tr>
+              <tr>
+                <td>{{ features.f6_title }}</td>
+                <td>{{ features.f6 }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--end-->
+
+  {% endblock %}
+</main>

@@ -1,0 +1,80 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+<style>
+
+</style>
+</head>
+<body>
+<!-- smg-hero Section -->
+<header class="smg-hero">
+    <div class="container">
+        <h1>Marketing Materials</h1>
+        <p class="text-white" >Elevate your brand with high-impact marketing materials that drive engagement and convert leads.</p>
+    </div>
+</header>
+
+<!-- Service Description Section -->
+<section class="smg-service-description">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>The Power of Effective Marketing Materials</h2>
+                <p>Marketing materials are essential for communicating your brand’s message and reaching your target audience. From brochures to flyers and banners, well-designed materials help you make a memorable impression and effectively promote your products or services.</p>
+                <p>Our marketing materials are crafted to align with your brand’s identity and objectives, ensuring that your marketing efforts are cohesive, impactful, and engaging. Let us help you create materials that stand out and drive results.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="/static/codefyn-5.0/images/services/graphics-design/mm4.png" class="img-fluid rounded" alt="Marketing Materials">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Examples Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Marketing Materials</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="smg-service-card">
+                    <img src="/static/codefyn-5.0/images/services/graphics-design/mm.png" class="smg-service-card-img-top" alt="Example 1">
+                    <div class="card-body text-center">
+                        <h5 class="smg-service-card-title">Brochures</h5>
+                        <p class="smg-service-card-text">Designs that effectively communicate your message and showcase your brand’s offerings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="smg-service-card">
+                    <img src="/static/codefyn-5.0/images/services/graphics-design/mm2.png" class="smg-service-card-img-top" alt="Example 2">
+                    <div class="card-body text-center">
+                        <h5 class="smg-service-card-title">Flyers</h5>
+                        <p class="smg-service-card-text">Eye-catching flyers that grab attention and drive engagement for your events or promotions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="smg-service-card">
+                    <img src="/static/codefyn-5.0/images/services/graphics-design/mm3.png" class="smg-service-card-img-top" alt="Example 3">
+                    <div class="card-body text-center">
+                        <h5 class="smg-service-card-title">Banners</h5>
+                        <p class="smg-service-card-text">High-impact banners designed to stand out and make a statement at your events or in-store displays.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h2>Ready to Enhance Your Marketing Efforts?</h2>
+        <p>Contact us today to get started on creating marketing materials that drive results and elevate your brand.</p>
+        <a href="{% url 'Home:project_discuss' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+    </div>
+</section>
+
+
+
+   
+
+{% endblock %}

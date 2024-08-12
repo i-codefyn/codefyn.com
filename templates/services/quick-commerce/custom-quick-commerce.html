@@ -1,0 +1,62 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+<!-- Hero Section -->
+<section class="custom-quick-commerce-hero-section">
+    <div class="container">
+        <h1 class="custom-quick-commerce-hero-title">Custom eCommerce Design</h1>
+        <p class="custom-quick-commerce-hero-subtitle">Elevate your online store with a design that's tailored to your brand and business goals.</p>
+    </div>
+</section>
+
+<!-- Service Detail Section -->
+<section class="custom-quick-commerce-service-detail container">
+    <h2>What We Offer</h2>
+    <p>Our custom eCommerce design service provides a fully tailored solution that aligns perfectly with your brand identity and business objectives. From initial concept to final launch, we ensure every detail is crafted to enhance user experience and drive conversions.</p>
+    
+    <!-- Features List -->
+    <div class="custom-quick-commerce-feature-list">
+        <div class="custom-quick-commerce-feature-item">
+            <div class="custom-quick-commerce-feature-icon">
+                <i class="bi bi-palette"></i> <!-- Bootstrap Icons -->
+            </div>
+            <div>
+                <div class="custom-quick-commerce-feature-title">Unique Design</div>
+                <div class="custom-quick-commerce-feature-description">A design that's uniquely yours, reflecting your brand's personality and values.</div>
+            </div>
+        </div>
+        <div class="custom-quick-commerce-feature-item">
+            <div class="custom-quick-commerce-feature-icon">
+                <i class="bi bi-laptop"></i> <!-- Bootstrap Icons -->
+            </div>
+            <div>
+                <div class="custom-quick-commerce-feature-title">Responsive Layout</div>
+                <div class="custom-quick-commerce-feature-description">Optimized for all devices, ensuring a seamless shopping experience on desktop, tablet, and mobile.</div>
+            </div>
+        </div>
+        <div class="custom-quick-commerce-feature-item">
+            <div class="custom-quick-commerce-feature-icon">
+                <i class="bi bi-cart-check"></i> <!-- Bootstrap Icons -->
+            </div>
+            <div>
+                <div class="custom-quick-commerce-feature-title">Enhanced User Experience</div>
+                <div class="custom-quick-commerce-feature-description">Designed with the user in mind to ensure an intuitive and enjoyable shopping experience.</div>
+            </div>
+        </div>
+        <div class="custom-quick-commerce-feature-item">
+            <div class="custom-quick-commerce-feature-icon">
+                <i class="bi bi-gear"></i> <!-- Bootstrap Icons -->
+            </div>
+            <div>
+                <div class="custom-quick-commerce-feature-title">Custom Functionality</div>
+                <div class="custom-quick-commerce-feature-description">Integration of bespoke features and functionalities tailored to your business needs.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Button -->
+    <a href="{% url 'Home:project_discuss' %}" class="custom-quick-commerce-cta-btn">Get Started Today</a>
+
+    <!-- Back Button -->
+    <a href="{% url 'services:quick_commerce' %}" class="custom-quick-commerce-back-btn">Back to Services</a>
+</section>
+{% endblock %}

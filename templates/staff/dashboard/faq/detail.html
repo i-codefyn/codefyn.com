@@ -1,0 +1,44 @@
+{% extends 'layouts/base_dash.html'%} {% block content %}
+<main class="main-content">
+  <div class="bg-light">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1"
+    >
+      <h1 class="h4 ms-2">{% if pagename %}{{pagename}}{% endif %}</h1>
+      <div class="btn-toolbar mb-2 me-1 mb-md-1">
+        <div class="btn-group me-1">
+          <a href="{% url 'faq_list'%}" type="button" class="btn btn-warning"
+            ><i class="bi bi-arrow-left"></i> Back</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Dashboard Counts Section-->
+    <div class="card box-lg">
+      <div class="row">
+        <div class="w-100">
+          <h3 class="text-center text-muted">FAQs Detail</h3>
+          <hr />
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Que</th>
+                <th scope="col">Ans</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>{{ faq.que }}</td>
+                <td>{{ faq.ans }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end-->
+
+  {% endblock %}
+</main>

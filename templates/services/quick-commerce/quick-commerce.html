@@ -1,0 +1,52 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+    <!-- Hero Section -->
+    <section class="quick-commerce-hero-section">
+        <div class="container">
+            <h1 class="quick-commerce-hero-title">eCommerce Solutions</h1>
+            <p class="text-white">quick-commerce-hero-subtitle">Transform your business with our tailored eCommerce services.</p>
+        </div>
+    </section>
+
+    <!-- Service Header Section -->
+    <section class="quick-commerce-service-header container">
+        <h2>Our eCommerce Services</h2>
+        <p>We offer a range of eCommerce solutions designed to help your business gquick-commerce-row and succeed online. Explore our services below to find the perfect fit for your needs.</p>
+    </section>
+
+    <!-- Services Cards Section -->
+    <section class="container my-5 py-5">
+        <div class="quick-commerce-row">
+            <div class="quick-commerce-col-md-4">
+                <div class="card quick-commerce-service-card">
+                    <div class="quick-commerce-service-icon mb-3">
+                        <i class="bi bi-shop"></i> <!-- Bootstrap Icons -->
+                    </div>
+                    <h5 class="quick-commerce-service-title">Custom eCommerce Design</h5>
+                    <p class="quick-commerce-service-description">Tailor-made eCommerce websites designed to match your brand and enhance user experience.</p>
+                    <a href="{% url 'services:custom_quick_commerce' %}" class="quick-commerce-cta-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="quick-commerce-col-md-4">
+                <div class="card quick-commerce-service-card">
+                    <div class="quick-commerce-service-icon mb-3">
+                        <i class="bi bi-credit-card"></i> <!-- Bootstrap Icons -->
+                    </div>
+                    <h5 class="quick-commerce-service-title">Payment Gateway Integration</h5>
+                    <p class="quick-commerce-service-description">Seamless integration with secure payment gateways to ensure safe and efficient transactions.</p>
+                    <a href="{% url 'services:quick_commerce_payment' %}" class="quick-commerce-cta-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="quick-commerce-col-md-4">
+                <div class="card quick-commerce-service-card">
+                    <div class="quick-commerce-service-icon mb-3">
+                        <i class="bi bi-bar-chart-line"></i> <!-- Bootstrap Icons -->
+                    </div>
+                    <h5 class="quick-commerce-service-title">Performance Analytics</h5>
+                    <p class="quick-commerce-service-description">Advanced analytics to track your store's performance and make data-driven decisions.</p>
+                    <a href="{% url 'services:quick_commerce_performance_analysis' %}" class="quick-commerce-cta-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

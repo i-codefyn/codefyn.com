@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td,
+      th {
+        border: solid 2px;
+        padding: 10px 5px;
+      }
+      tr {
+        text-align: center;
+      }
+      .container {
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="font-family:Orbitron, Times, serif; color:blue">Codefyn</h2>
+      <p style="text-align: center;" > www.codefyn.com | info@codefyn.com | Mob:+917992200751 </p>
+      <p style="text-align: center; " > Ward No-43 | Prakash Nagar | Sevoke Road | Siliguri-734004 </p>
+      <hr/>
+      <div>
+        <h2>Quick<b style="color: red"> Enquiry</b></h2>
+      </div>
+      <table id="example2" role="grid">
+        <thead>
+          <tr>
+            <th width="50%">Customer Name</th>
+            <th width="50%">Email.</th>
+          </tr>
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ email }}</td>
+          </tr>
+          <tr>
+            <th width="50%">Message</th>
+            <th width="50%">Date</th>
+          </tr>
+          <tr>
+            <td>{{ msg }}</td>
+            <td>{{ date }}</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <p style="float: right; z-index: 1100; margin-top: 100px">
+      Date: {{ date }}
+    </p>
+  </body>
+</html>

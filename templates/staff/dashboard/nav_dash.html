@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-white sticky-top">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <button
+      type="button"
+      class="btn float-left"
+      id="sidebarsrink"
+      role="button"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/" class="navbar-brand d-flex">
+      <img src="/static/codefyn-5.0/images/logo.svg" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- for serach-->
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-people"></i>
+            {{ user.username }}
+          </a>
+
+          <ul
+            class="dropdown-menu dropdown-menu-lg-end"
+            aria-labelledby="navbarDropdown"
+          >
+            {% if user.is_authenticated %}
+            <li>
+              <a class="dropdown-item" href="{% url 'Home:index' %}">
+                <i class="bi bi-person-bounding-box fa-fw mr10"></i>View Site</a
+              >
+            </li>
+
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <!-- Logout  -->
+            <li>
+              <a class="dropdown-item" type="button" name="logout"  onclick="logoutFunction()">
+                <i class="bi bi-box-arrow-in-right mr10"></i>
+                Logout</a
+              >
+            </li>
+            {% else %}
+            <li>
+              <a class="dropdown-item" href="{% url 'account_login' %}">
+                <i class="fas fa-sign-out-alt fa-fw"></i>
+                Login</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

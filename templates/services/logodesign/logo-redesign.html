@@ -1,0 +1,36 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+<!-- Service Header Section -->
+<header class="logo-redesign-service-header">
+<div class="container my-5 py-5">
+    <h1>Logo Redesign</h1>
+    <p class="text-white">Revitalize your brand with a modern and updated logo design.</p>
+</div>
+</header>
+
+<!-- Service Content Section -->
+<section class="logo-redesign-service-content container">
+<h2>Why Choose Our Logo Redesign Service?</h2>
+<p>Your logo is a critical element of your brand identity, and it should evolve as your business grows. Our logo redesign service is focused on refreshing your logo to better align with current trends and your evolving brand identity. With our expert design team, we ensure your new logo will maintain its recognition while introducing modern design elements.</p>
+
+<h2>What You Get:</h2>
+<ul>
+    <li>A fresh, modernized logo that retains brand recognition.</li>
+    <li>Multiple redesign concepts based on your current logo.</li>
+    <li>Unlimited revisions to ensure your satisfaction.</li>
+    <li>High-resolution files suitable for all platforms.</li>
+    <li>Full ownership of the final logo design.</li>
+</ul>
+
+<h2>Our Process:</h2>
+<p>We follow a proven process to deliver a logo redesign that enhances your brand:</p>
+<ul>
+    <li><strong>1. Evaluation:</strong> We assess your current logo and gather insights about your brand and design preferences.</li>
+    <li><strong>2. Concept Development:</strong> Our designers create multiple redesign concepts while preserving your brand's essence.</li>
+    <li><strong>3. Feedback & Revisions:</strong> You provide feedback, and we make necessary adjustments to ensure the logo meets your expectations.</li>
+    <li><strong>4. Final Delivery:</strong> Once approved, we deliver the final logo files in various formats for all uses.</li>
+</ul>
+
+<a href="{% url 'Home:project_discuss' %}" class="cta-btn">Start Your Logo Redesign</a>
+<a href="{% url 'services:logo_design' %}" class="logo-redesign-back-btn">Back to Services</a>
+</section>
+{% endblock %}

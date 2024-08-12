@@ -1,0 +1,75 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+<!-- smg-hero Section -->
+<header class="smg-hero">
+    <div class="container">
+        <h1>Social Media Graphics</h1>
+        <p class="text-white" >Stand out on social media with visually stunning graphics that capture your brand’s essence.</p>
+    </div>
+</header>
+
+<!-- Service Description Section -->
+<section class="smg-service-description">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Why Social Media Graphics Matter</h2>
+                <p>In today's digital world, social media is a powerful tool for engaging with your audience. High-quality graphics can make your posts more eye-catching and memorable, helping you to effectively convey your brand’s message and increase engagement.</p>
+                <p>Our social media graphics are designed to reflect your brand’s personality and objectives, ensuring that your content stands out and resonates with your audience across various platforms.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="/static/codefyn-5.0/images/services/graphics-design/socialmedia2.jpeg" class="img-fluid rounded" alt="Social Media Graphics">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Examples Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Work</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="smg-card">
+                    <img src="/static/codefyn-5.0/images/services/graphics-design/socailomediapost.jpeg" class="smg-card-img-top" alt="Example 1">
+                    <div class="card-body">
+                        <h5 class="smg-card-title">Engaging Posts</h5>
+                        <p class="smg-card-text">Create engaging posts that drive interaction and increase your reach.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="smg-card">
+                    <img src="/static/codefyn-5.0/images/services/graphics-design/permostion.jpeg" class="smg-card-img-top" alt="Example 2">
+                    <div class="card-body">
+                        <h5 class="smg-card-title">Promotional Graphics</h5>
+                        <p class="smg-card-text">Design eye-catching promotional graphics to boost your marketing campaigns.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="smg-card">
+                    <img src="/static/codefyn-5.0/images/services/graphics-design/branded3.jpeg" class="smg-card-img-top" alt="Example 3">
+                    <div class="card-body">
+                        <h5 class="smg-card-title">Branded Content</h5>
+                        <p class="smg-card-text">Develop branded content that reflects your company’s identity and values.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h2>Ready to Enhance Your Social Media Presence?</h2>
+        <p>Contact us today to get started with custom social media graphics that will make your brand shine.</p>
+        <a href="{% url 'Home:project_discuss' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+    </div>
+</section>
+
+
+   
+
+{% endblock %}

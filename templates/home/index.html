@@ -1,0 +1,23 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+{% include 'home/includes/slider.html' %}
+{% include 'home/includes/about_us.html' %}
+{% include 'home/includes/services.html' %}
+{% include 'home/includes/features.html' %}
+{% include 'home/includes/our_skills.html' %}
+{% include 'home/includes/how_we_work.html' %}
+{% include 'home/includes/our_portfolio.html' %}
+{% include 'home/includes/clients.html' %}
+    <script>
+      // FOrm Submit
+      $(document).ready(function () {
+        $(".preloader").hide();
+        $("#MainForm").on("submit", function () {
+          $(".preloader").fadeIn();
+        }); //submit
+      });
+      // end form submit
+
+
+    </script>
+    {% endblock %}
+

@@ -1,0 +1,24 @@
+version: "V-1.0"
+
+services:
+  web:
+    build: .
+    command: python /repaircenter/manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=django-insecure-jpjhb)$$cjy4k=j#x76x%d90a4)e(1$$zs)p!rj7lw#tm_r$$-wzd
+      - DEBUG=1 
+    volumes:
+      - .:/repaircenter
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+volumes:
+  postgres_data:

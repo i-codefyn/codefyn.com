@@ -1,0 +1,66 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+
+<!-- Hero Section -->
+<section class="quick-commerce-performance-analysis-hero-section">
+    <div class="container">
+        <h1 class="quick-commerce-performance-analysis-hero-title">Performance Analytics</h1>
+        <p class="quick-commerce-performance-analysis-hero-subtitle text-white">Unlock valuable insights and optimize your business performance with our advanced analytics solutions.</p>
+    </div>
+</section>
+
+<!-- Service Detail Section -->
+<section class="quick-commerce-performance-analysis-service-detail container">
+    <h2>Maximize Your Business Potential</h2>
+    <p>Our Performance Analytics service provides comprehensive insights into your business's key metrics, helping you make data-driven decisions and achieve your strategic goals. From tracking customer behavior to analyzing sales trends, our analytics solutions empower you to enhance performance and drive growth.</p>
+    
+    <!-- Benefits Section -->
+    <div class="quick-commerce-performance-analysis-benefits-section">
+        <h3>Benefits of Our Performance Analytics</h3>
+        <div class="quick-commerce-performance-analysis-benefits-list">
+            <div class="quick-commerce-performance-analysis-benefit-item">
+                <div class="benefit-icon">
+                    <i class="bi bi-bar-chart"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-performance-analysis-quick-commerce-performance-analysis-benefit-icon">Data-Driven Decisions</div>
+                    <div class="quick-commerce-performance-analysis-benefit-description">Make informed decisions based on comprehensive data analysis and actionable insights.</div>
+                </div>
+            </div>
+            <div class="quick-commerce-performance-analysis-benefit-item">
+                <div class="benefit-icon">
+                    <i class="bi bi-graph-up"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-performance-analysis-quick-commerce-performance-analysis-benefit-icon">Performance Optimization</div>
+                    <div class="quick-commerce-performance-analysis-benefit-description">Identify areas for improvement and optimize performance to achieve better results.</div>
+                </div>
+            </div>
+            <div class="quick-commerce-performance-analysis-benefit-item">
+                <div class="benefit-icon">
+                    <i class="bi bi-person-lines-fill"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-performance-analysis-quick-commerce-performance-analysis-benefit-icon">Customer Insights</div>
+                    <div class="quick-commerce-performance-analysis-benefit-description">Gain a deeper understanding of customer behavior and preferences to tailor your strategies.</div>
+                </div>
+            </div>
+            <div class="quick-commerce-performance-analysis-benefit-item">
+                <div class="benefit-icon">
+                    <i class="bi bi-clock"></i> <!-- Bootstrap Icons -->
+                </div>
+                <div>
+                    <div class="quick-commerce-performance-analysis-quick-commerce-performance-analysis-benefit-icon">Real-Time Monitoring</div>
+                    <div class="quick-commerce-performance-analysis-benefit-description">Track performance in real-time and make timely adjustments to stay ahead of the competition.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Button -->
+    <a href="{% url 'Home:project_discuss' %}" class="quick-commerce-performance-analysis-cta-btn">Get Started with Analytics</a>
+
+    <!-- Back Button -->
+    <a href="{% url 'services:quick_commerce' %}" class="quick-commerce-performance-analysis-back-btn">Back to Services</a>
+</section>
+
+{% endblock %}

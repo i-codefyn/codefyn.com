@@ -1,0 +1,72 @@
+
+
+<section  id="clients" class="bg-light p-4">
+  <div class="d-flex">
+  <div class="container" data-aos="fade-left">
+    <header class="section-header wow fadeInUp">
+      <h2>OUR Happy Clients</h2>
+    </header>
+  <ul class="clients">
+    <li><a href=""><img src="/static/codefyn-5.0/images/clients/fixenix.svg" alt="Fixenix"></a></li>
+    <li><a href=""><img src="/static/codefyn-5.0/images/clients/sofa.svg" alt="Sofaghar"></a></li>
+    <li><a href=""><img src="/static/codefyn-5.0/images/clients/baba.svg" alt="Baba Carpentary"></a></li>
+    <li><a href=""><img src="/static/codefyn-5.0/images/clients/cf.svg" alt="Codefyn"></a></li>
+  </ul>
+</div>
+</div>
+</section>
+
+<style>
+
+.clients {
+    align-items: center;
+    -webkit-box-align: center;
+    display: grid;
+    gap: 4.8rem 4.8rem;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    margin: 4.8rem auto;
+    max-width: 1024px; }
+
+.clients li {
+  list-style: none;
+  margin: 0;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.clients img {
+  height: 0.2rem;
+
+}
+.clients:hover li {
+filter: blur(0px);
+-webkit-filter: blur(0px);
+}
+.clients:hover li:not(:hover)  {
+filter: blur(2px);
+-webkit-filter: blur(2px);
+}
+.clients li:hover {
+-webkit-transform: translateY(-0.3rem);
+transform: translateY(-0.3rem);
+}
+
+@media (min-width: 1024px) {
+.clients {
+    grid-template-columns: auto auto auto auto; }
+
+.clients img {
+  height: 4rem; }}
+
+/* --- Images (gray logo) --- */
+.clients img {
+  -webkit-filter: grayscale(100%) brightness(10%) contrast(10%);
+          filter: grayscale(100%) brightness(10%) contrast(10%); }
+
+.clients img:hover {
+  background: none;
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
+  </style>

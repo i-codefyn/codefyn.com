@@ -1,0 +1,79 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+    <!-- Hero Section -->
+    <section class="software-development-hero-section">
+        <div class="container">
+            <h1 class="software-development-hero-title">Software Development Services</h1>
+            <p class="software-development-hero-subtitle text-white">Transform your ideas into reality with our comprehensive software development solutions.</p>
+        </div>
+    </section>
+
+    <!-- Service Detail Section -->
+    <section class="software-development-service-detail container">
+        <h2>End-to-End Software Development</h2>
+        <p>We provide a full spectrum of software development services, from conceptualization and design to deployment and maintenance. Our team of experienced developers is dedicated to delivering high-quality, scalable, and secure software solutions that meet your business needs.</p>
+        
+        <!-- Services Section -->
+        <div class="software-development-service-section">
+            <h3>Our Software Development Services</h3>
+            <div class="software-development-service-cards">
+
+                <div class="software-development-service-card">
+                    <div class="software-development-software-development-service-card">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <div class="software-development-service-title">Custom Software Development</div>
+                    <div class="software-development-service-description">Tailored software solutions designed to fit your specific business requirements.</div>
+                </div>
+
+                <div class="software-development-service-card">
+                    <div class="software-development-software-development-service-card">
+                        <i class="bi bi-cloud-upload"></i>
+                    </div>
+                    <div class="software-development-service-title">Cloud-Based Applications</div>
+                    <div class="software-development-service-description">Develop scalable and flexible cloud applications to enhance your business operations.</div>
+                </div>
+
+                <div class="software-development-service-card">
+                    <div class="software-development-software-development-service-card">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <div class="software-development-service-title">Enterprise Solutions</div>
+                    <div class="software-development-service-description">Robust and secure enterprise-level software to streamline and automate your workflows.</div>
+                </div>
+
+                <div class="software-development-service-card">
+                    <div class="software-development-software-development-service-card">
+                        <i class="bi bi-phone"></i>
+                    </div>
+                    <div class="software-development-service-title">Mobile App Development</div>
+                    <div class="software-development-service-description">Native and cross-platform mobile applications that deliver a seamless user experience.</div>
+                </div>
+
+                <div class="software-development-service-card">
+                    <div class="software-development-software-development-service-card">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+                    <div class="software-development-service-title">API Development & Integration</div>
+                    <div class="software-development-service-description">Powerful APIs to connect your systems and enable data exchange across platforms.</div>
+                </div>
+
+                <div class="software-development-service-card">
+                    <div class="software-development-software-development-service-card">
+                        <i class="bi bi-gear"></i>
+                    </div>
+                    <div class="software-development-service-title">Maintenance & Support</div>
+                    <div class="software-development-service-description">Ongoing maintenance and support to ensure your software remains up-to-date and secure.</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Call-to-Action Section -->
+        <div class="software-development-cta-section">
+            <a href="{% url 'Home:project_discuss' %}" class="software-development-cta-btn">Contact Us to Get Started</a>
+        </div>
+
+        <!-- Back Button -->
+        <a href="{% url 'Home:index' %}#service" class="software-development-back-btn">Back to Services</a>
+    </section>
+{% endblock %}

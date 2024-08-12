@@ -1,0 +1,64 @@
+{% extends 'layouts/_base.html'%} {% block content %}
+    <!-- Hero Section -->
+    <section class="dm-hero-section">
+        <div class="container">
+            <h1>Digital Marketing Services</h1>
+            <p class="lead">Grow your business with our comprehensive digital marketing solutions.</p>
+            <a href="{% url 'Home:contactus' %} " class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="dm-services-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>What We Offer</h2>
+                    <p>Our digital marketing services are designed to increase your online presence and drive targeted traffic to your website. From SEO to social media management, we have you covered.</p>
+                    <ul class="dm-list-unstyled">
+                        <li><i class="bi bi-check-circle"></i> Search Engine Optimization (SEO)</li>
+                        <li><i class="bi bi-check-circle"></i> Social Media Marketing</li>
+                        <li><i class="bi bi-check-circle"></i> Pay-Per-Click (PPC) Advertising</li>
+                        <li><i class="bi bi-check-circle"></i> Content Marketing</li>
+                        <li><i class="bi bi-check-circle"></i> Email Marketing</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="/static/codefyn-5.0/images/services/digital-marketing/digital.jpeg" class="img-fluid" alt="Digital Marketing">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="/static/codefyn-5.0/images/services/digital-marketing/digital2.jpeg" class="img-fluid" alt="Why Choose Us">
+                </div>
+                <div class="col-md-6">
+                    <h2>Why Choose Us?</h2>
+                    <p>We are committed to delivering results-driven digital marketing strategies. Our team of experts stays ahead of the latest trends to ensure your business stays competitive in the digital landscape.</p>
+                    <ul class="dm-list-unstyled">
+                        <li><i class="bi bi-check-circle"></i> Proven Track Record</li>
+                        <li><i class="bi bi-check-circle"></i> Customized Solutions</li>
+                        <li><i class="bi bi-check-circle"></i> Transparent Reporting</li>
+                        <li><i class="bi bi-check-circle"></i> Dedicated Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="dm-cta-section">
+        <div class="container">
+            <h2>Ready to Grow Your Business?</h2>
+            <p class="lead">Contact us today to learn more about how our digital marketing services can help your business thrive.</p>
+            <a href="{% url 'Home:project_discuss' %}" class="btn btn-light btn-lg">Get Started</a>
+        </div>
+    </section>
+
+
+{% endblock %}

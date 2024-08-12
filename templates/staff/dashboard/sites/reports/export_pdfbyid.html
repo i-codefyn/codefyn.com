@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <style>
+            * {
+                font-size: 15px;
+            }
+
+            table {
+                table-layout: fixed;
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            table th {
+                text-align: left;
+                padding: 3px;
+                padding-bottom: 0;
+            }
+
+            table td {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 3px;
+                padding-bottom: 0;
+            }
+            @page {
+           padding: 10px;
+}
+        
+        </style>
+    </head>
+
+    <body>
+
+        
+        <table><tr>
+            <th>{% for app in app_data %}
+                <img src="{{ app.app_logo.url }}" style="width: 160px; height: 40px; text-align: center;">
+            <p style="text-align: center;" > {{ app.domain_name }}| {{ app.app_email }} | Mob:{{ app.app_mobile }} </p>
+            <p style="text-align: center; " > {{ app.app_address }} </p>
+            <hr> 
+                   
+                   <h3 style="text-align: center;">{{ doc_name }} </h3> <p> Date: {{time}} </p>
+                  </th></tr> </table>
+                   <table>
+            <tr>
+                <th sttyle="width: 40%; text-align: left;" > Headding Title</th>
+                <th sttyle="width: 40%; text-align: left;"> Headding</th>
+                <th sttyle="width: 20%; text-align: left;"> Bg</th>
+            </tr>
+           
+            <tr>{% for slider in slider %}
+                
+                <td > {{ slider.heading1_title }} </td>
+                <td >{{ slider.heading1 }} </td>
+                <td >{{ slider.bg1 }} </td>
+                
+            </tr>
+
+            <tr>
+                <td > {{ slider.heading2_title }} </td>
+                <td >{{ slider.heading2 }} </td>
+                <td >{{ slider.bg2 }} </td>
+            </tr>
+            <tr>
+                <td > {{ slider.heading3_title }} </td>
+                <td >{{ slider.heading3 }} </td>
+                <td >{{ slider.bg3 }} </td>
+            </tr>
+            <tr>
+                <td > {{ slider.heading4_title }} </td>
+                <td >{{ slider.heading4 }} </td>
+                <td >{{ slider.bg4 }} </td>
+            </tr>
+           
+           
+        </table>
+      
+        <pdf:barcode value="{{ app.domain_name }} | {{ doc_name }}" type="code128" humanreadable="1" align="bottom" />
+        {% endfor %}
+       
+    </body> {% endfor %}
+</html>

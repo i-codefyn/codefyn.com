@@ -1,0 +1,149 @@
+<main class="main-content mb-5">
+  <div class="container">
+    <section class="pb-0 flex-wrap flex-md-nowrap align-items-center pt-3">
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-white round10">
+            <i class="bi bi-person-check rounded-circle bg-orange"></i>
+            <span class="heading">Users</span>
+            <span class="count"><span>{{ user_count }}</span></span>
+            <div class="progress">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: {{ user_count }}%"
+                aria-valuenow="{{ user_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="box bg-primary round10">
+            <i class="bi bi-receipt rounded-circle btn-pink px-2"></i>
+            <span class="heading">Invoice</span>
+            <span class="count">{{ invoice_count }}</span>
+            <div class="progress">
+              <div
+                class="progress-bar btn-pink"
+                role="progressbar"
+                style="width: {{ invoice_count }}%"
+                aria-valuenow="{{ invoice_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-white round10">
+            <i class="bi bi-person-workspace rounded-circle bg-red"></i>
+            <span class="heading">Works</span>
+            <span class="count">{{ works_count }}</span>
+            <div class="progress">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                style="width: {{ works_count }}%"
+                aria-valuenow="{{ works_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-info round10">
+            <i class="bi bi-send-check rounded-circle bg-dark"></i>
+            <span class="heading">Requests</span>
+            <span class="count"><span>{{ online_request_count }}</span></span>
+            <div class="progress">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width:{{ online_request_count }}%"
+                aria-valuenow="{{ online_request_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-0 flex-wrap flex-md-nowrap align-items-center pt-3">
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-white round10">
+            <i class="bi bi-clipboard-x rounded-circle bg-warning"></i>
+            <span class="heading">Pending</span>
+            <span class="count">{{ pending_works_count }}</span>
+            <div class="progress">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: {{ pending_works_count }}%"
+                aria-valuenow="{{ pending_works_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-white round10">
+            <i class="bi bi-check2-circle rounded-circle bg-success px-2"></i>
+            <span class="heading">Work Done</span>
+            <span class="count">{{ completed_works_count }} </span>
+            <div class="progress">
+              <div
+                class="progress-bar btn-pink"
+                role="progressbar"
+                style="width: {{ completed_works_count }} %"
+                aria-valuenow="{{ completed_works_count }} "
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-white round10">
+            <i class="bi bi-chat-right-text rounded-circle bg-primary"></i>
+            <span class="heading">Feedback</span>
+            <span class="count">{{ feedback_count }}</span>
+            <div class="progress">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                style="width: {{ feedback_count }}%"
+                aria-valuenow="{{ feedback_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="box text-white round10">
+            <i class="bi bi-envelope-at rounded-circle bg-info"></i>
+            <span class="heading">Message</span>
+            <span class="count"><span>{{ msg_count }}</span></span>
+            <div class="progress">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width:{{ msg_count }}%"
+                aria-valuenow="{{ msg_count }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

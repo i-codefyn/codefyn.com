@@ -1,0 +1,252 @@
+<!-- sidebar start -->
+<nav class="text-start" id="sidebar">
+  <div class="sidebar-header">
+    <div id="sidebar-top">
+      <span class="smalltext"
+        ><a
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        type="button"
+        class="btn-orange"
+        title="Feel Free to Contact"
+        href="{% url 'Home:contactus' %}"
+      >
+        Quick Enquiry!
+      </a>
+    </span>
+
+      <span class="text">
+        <button
+          type="button"
+          id="sidebarCollapseX"
+          class="btn btn-sm"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          title="Close"
+        >
+          <i class="bi bi-x-circle fs-2 text-danger"></i>
+        </button>
+      </span>
+    </div>
+    <li class="border-top my-3"></li>
+    <li class="px-3">
+      {% if user.is_authenticated and user.is_staff %}
+      <a
+        class="sidebar-btn align-items-center rounded collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#account-collapse"
+        aria-expanded="false"
+      >
+        <i class="bi bi-people mr10"></i>{{ user.username }}
+      </a>
+      <div class="collapse" id="account-collapse">
+        <ul class="sidebar-btn-nav list-unstyled fw-normal pb-1 small">
+          <li>
+            <a class="link-dark rounded" href="{% url 'staff' %}">
+              <i class="bi bi-speedometer mr10"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="link-dark rounded"
+              type="button"
+              onclick="logoutFunction()"
+            >
+              <i class="bi bi-box-arrow-right mr10"></i> Log Out</a
+            >
+          </li>
+          {% elif user.is_authenticated %}
+          <a
+            class="sidebar-btn align-items-center rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#account-collapse"
+            aria-expanded="false"
+          >
+            <i class="bi bi-people px-1"></i>{{ user.username }}
+          </a>
+          <div class="collapse" id="account-collapse">
+            <ul class="sidebar-btn-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a class="dropdown-item" href="{% url 'user_dashboard' %}">
+                  <i class="bi bi-person-bounding-box mr10"></i>
+                  Account</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  type="button"
+                  name="logout"
+                  id="logout"
+                >
+                  <i class="bi bi-box-arrow-right mr10"></i> Log Out</a
+                >
+              </li>
+            </ul>
+          </div>
+          {% elif not user.is_authenticated %}
+          <a
+            class="text-muted"
+            data-bs-toggle="tooltip"
+            href="{% url 'account_login'%}"
+            data-bs-placement="bottom"
+            title="Login"
+            >   <i class="bi bi-fingerprint mr5"></i> Login</a
+          >
+          {% endif %}
+        </ul>
+
+        <li class="border-top my-3"></li>
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <div class="">
+              <ul class="sidebar-btn-nav list-unstyled">
+
+                <li>
+                  <a href="{% url 'Home:index' %}" class="fw-bolder"
+                    ><i class="bi bi-house-check mr5 px-2"></i> HOME</a
+                  >
+                </li>
+                <li>
+                  <a  href="{% url 'Home:index' %}#about" class="a fw-bolder"
+                    ><i class="bi bi-building-gear mr5 px-2"></i> ABOUT US</a
+                  >
+                </li>
+                <li>
+                  <a  href="{% url 'Home:index' %}#service" class="a fw-bolder"
+                    ><i class="bi bi-person-workspace mr5 px-2"></i>SERVICES</a
+                  >
+                </li>
+                <li>
+                  <a  href="{% url 'Home:index' %}#features" class="a fw-bolder"
+                    ><i class="bi bi-hdd-rack mr5 px-2"></i>FEATURES</a
+                  >
+                </li>
+                <li>
+                  <a  href="{% url 'Home:index' %}#skills" class="a fw-bolder"
+                    ><i class="bi bi-stars mr5 px-2"></i>TECHNOLOGIES</a
+                  >
+                </li>
+                <li>
+                  <a   href="{% url 'Home:latest_designs' %}"  class="a fw-bolder"
+                    ><i class="bi bi-aspect-ratio mr5 px-2"></i>lATEST DESIGNS</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <hr />
+
+          <li class="mb-1">
+            <a
+              class="sidebar-btn align-items-center rounded collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#orders-collapse"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person px-2"></i> SUPPORT
+            </a>
+            <div class="collapse" id="orders-collapse">
+              <ul class="sidebar-btn-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <a href="{% url 'Home:faqs' %}" class="link-dark rounded">
+                    <i class="bi bi-exclamation-circle px-2"></i>FAQ'S</a
+                  >
+                </li>
+                <li>
+                  <a href="{% url 'Home:contactus' %}" class="link-dark rounded">
+                    <i class="bi bi-envelope-at px-2"></i> CONTACT US</a
+                  >
+                </li>
+                <li>
+                  <a href="{% url 'Home:feedback' %}" class="link-dark rounded">
+                    <i class="bi bi-rss px-2"></i>FEEDBACK</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'Home:faqs' %}"
+                    class="link-dark rounded"
+                  >
+                    <i class="bi bi-file-earmark-text px-2"></i>FAQ'S
+                   </a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'Home:terms_and_conditions' %}"
+                    class="link-dark rounded"
+                  >
+                    <i class="bi bi-file-earmark-text px-2"></i>TERMS AND CONDITIONS</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'Home:privacy_policy' %}"
+                    class="link-dark rounded"
+                  >
+                    <i class="bi bi-shield-check px-2"></i>PRIVACY AND POLICY</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{% url 'Home:refund_policy' %}"
+                    class="link-dark rounded"
+                  >
+                    <i class="bi bi-shield-check px-2"></i>REFUND POLICY</a
+                  >
+                </li>
+                <li>
+                  <a href="{% url 'Home:disclamer' %}" class="link-dark rounded">
+                    <i class="bi bi-file-earmark-medical px-2"></i>DISCLAIMER</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="border-top my-3"></li>
+          <ul class="social-icons text-center">
+            <li>
+              <a
+                href="https://www.facebook.com/codefyn/"
+                target="_blank"
+                title=""
+              >
+                <i class="bi bi-facebook form-i text-primary"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@codefyn9934"
+                target="_blank"
+                title=""
+              >
+                <i class="bi bi-youtube form-i"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/codefyn/"
+                target="_blank"
+                title=""
+              >
+                <i class="bi bi-instagram form-i"></i
+              ></a>
+            </li>
+          </ul>
+          {% if app_data %} {% for app in app_data %}
+          <div class="text-center text-muted mt-2 mb-1">
+            {{ app.app_mobile }}
+          </div>
+          <div class="text-center text-muted mt-1 mb-1">
+            {{ app.app_email }}
+          </div>
+          <div class="text-center text-muted mt-5 mb-1">
+            {{ app.app_version }}
+          </div>
+          {% endfor %} {% endif %}
+        </ul>
+      </div>
+    </li>
+  </div>
+</nav>
